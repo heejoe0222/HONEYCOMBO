@@ -1,2 +1,2 @@
 # HONEYCOMBO
-conventional store recipe web service
+convenient store recipe web service
