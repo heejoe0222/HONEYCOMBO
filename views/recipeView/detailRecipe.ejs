@@ -71,7 +71,7 @@
         <ul>
             <li class="eachComment">
                 <% for(var i = 0; i < items.comment.length; i++) { %>
-                    <% var commentIdx = String(i)%>
+                    <% var commentIdx = String(i) %>
                     <% var userId = items.comment[i].userId %>
                     <% var commentContents = items.comment[i].commentContents %>
                     <% var rate = items.comment[i].rate %>
@@ -147,8 +147,7 @@
                         console.log(deleteComment)
                         alert(deleteComment.successMsg)
                         window.location.href = '/recipe/detailRecipe/viewDetail/' + title
-                    }
-                    else {
+                    } else {
                         //TODO : redirection
                         alert(deleteComment.errMsg)
                     }

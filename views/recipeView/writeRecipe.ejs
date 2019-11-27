@@ -12,14 +12,14 @@
         <li><a href="/recipe/mainRecipe">레시피</a></li>
     </ul>
 
-    <%if (logged) { %>
+    <% if (logged) { %>
     <div>
-        <h5><%=ID%>님 안녕하세요!</h5>
+        <h5><%= ID %>님 안녕하세요!</h5>
         <a href="/auth/logout">logout</a>
         <a href="/auth/dropout">drop out</a>
     </div>
     <% } %>
-    <%if (!logged) {%>
+    <% if (!logged) { %>
         <div>
             <li><a href="/auth/login">login</a></li>
             <li><a href="/auth/signup">signup</a></li>

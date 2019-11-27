@@ -135,9 +135,11 @@ router.post('/writeComment', function (req, res) {
                     var insertQuery = 'INSERT INTO COMMENT (RECIPETITLE, USERID, COMMENTCONTENTS, RATE) values (?, ?, ?, ?)'
                     var params = [recipeTitle, id, commentWrite, usersRate]
 
-                    conn.query(insertQuery, params, function(err, rows, fields) {
-                        if(err) { throw err; }
-                        if(rows) {
+                    conn.query(insertQuery, params, function (err, rows, fields) {
+                        if (err) {
+                            throw err;
+                        }
+                        if (rows) {
                             console.log(rows)
                         }
                     })
@@ -156,34 +158,34 @@ router.post('/writeComment', function (req, res) {
 })
 
 // comment edit request
-router.get('/editComment/:title', function(req, res) {
+router.get('/editComment/:title', function (req, res) {
     var title = req.params.title
     var id = req.user
 
     var editComment = {}
-    var getComment = function(callback) {
+    var getComment = function (callback) {
         var pullQuery = 'select COMMENTCONTENTS as commentContents, RATE as rate from comment' +
             'where RECIPETITLE = ? and USERID = ?'
-        conn.query(pullQuery, [title, id], function(err, rows, fields) {
-            if(err) throw err;
-            if(rows) {
+        conn.query(pullQuery, [title, id], function (err, rows, fields) {
+            if (err) throw err;
+            if (rows) {
                 res.statusCode = 200
                 editComment = rows;
-            }else {
+            } else {
                 res.statusCode = 204
                 editComment = ""
             }
         })
         callback(null, editComment)
     }
-    getComment(function(err, editComment) {
-        if(err) console.log('editing comment err')
+    getComment(function (err, editComment) {
+        if (err) console.log('editing comment err')
         else res.json(editComment)
     })
 })
 
 // update comment - click modify confirm btn
-router.put('/updateComment/:title/:comment/:rate', function(req, res) {
+router.put('/updateComment/:title/:comment/:rate', function (req, res) {
     // UPDATE SQL!
     var id = req.user
     var title = req.params.title
@@ -191,41 +193,41 @@ router.put('/updateComment/:title/:comment/:rate', function(req, res) {
     var editedRate = req.params.rate
     var updatedComment = {}
 
-    var updateComment = function(callback) {
+    var updateComment = function (callback) {
         var updateQuery = 'update comment set COMMENTCONTENTS = ? , RATE = ?' +
             'where RECIPETITLE = ? and USERID = ?'
-        conn.query(updateQuery, [editedComment, editedRate, title, id], function(err, rows, fields) {
-            if(err) throw err;
-            if(rows.affectedRows > 0) {
+        conn.query(updateQuery, [editedComment, editedRate, title, id], function (err, rows, fields) {
+            if (err) throw err;
+            if (rows.affectedRows > 0) {
                 res.statusCode = 200
                 updatedComment.result = 1
-            }else {
+            } else {
                 res.statusCode = 204
                 updatedComment.result = 0
             }
         })
         callback(null, updatedComment)
     }
-    updateComment(function(err, updatedComment) {
-        if(err) console.log('editing comment err')
+    updateComment(function (err, updatedComment) {
+        if (err) console.log('editing comment err')
         else res.json(updatedComment)
     })
 })
 
-router.delete('/deleteComment/:title', function(req, res) {
+router.delete('/deleteComment/:title', function (req, res) {
     var id = req.user;
     var title = req.params.title;
 
     var deleteComment = {}
     var deleteSQL = 'delete from comment where RECIPETITLE = ? and USERID = ?'
-    conn.query(deleteSQL, [title, id], function(err, rows, fields) {
-        if(err) throw err;
+    conn.query(deleteSQL, [title, id], function (err, rows, fields) {
+        if (err) throw err;
 
-        if(rows.affectedRows > 0) {
+        if (rows.affectedRows > 0) {
             res.statusCode = 200
             deleteComment.result = 1;
             deleteComment.successMsg = "Comment delete success!"
-        }else {
+        } else {
             deleteComment.result = 0;
             deleteComment.errMsg = "Cannot delete this comment"
         }

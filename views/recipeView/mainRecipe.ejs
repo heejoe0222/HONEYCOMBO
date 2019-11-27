@@ -35,7 +35,7 @@
         <!--TODO: if text input area is empty, blocking button at front and don't send request to server-->
         <li class="recipePriceSearch">
             <form action="" method="post">
-<!--                TODO : using type = number-->
+                <!--                TODO : using type = number-->
                 <input type="text" name="minPrice">원 ~
                 <input type="text" name="maxPrice">원
             </form>
@@ -96,7 +96,6 @@
         if (target.tagName !== "BUTTON") return;
 
         switch (type) {
-            //TODO: GET방식으로 바꾸기
             case "recipePriceSearch":
                 url = "/recipe/mainRecipe/search"
                 method = "POST"
