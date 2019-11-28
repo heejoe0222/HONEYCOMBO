@@ -1,0 +1,38 @@
+.jumbotron{
+  background-image: url("../images/jumbotron_img.png");
+  width: 80%;
+  height: 370px;
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+.container{
+  max-width: 1140px;
+}
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+#signup dropout{
+  background-color: #FF9100;
+  border: none;
+}
+
+#login logout{
+  background-color: #FFDA2D;
+  border: none;
+}
+
+#search{
+  background-color: #FF641A;
+  border: none;
+}

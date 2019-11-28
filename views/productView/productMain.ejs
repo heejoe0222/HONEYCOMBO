@@ -15,11 +15,11 @@
 
     <div class="auth">
         <% if (isLoggedin)  { %>
-        <div>
-            <h5><%= userID %>님 안녕하세요!</h5>
-            <a href="/auth/logout">logout</a>
-            <a href="/auth/dropout">drop out</a>
-        </div>
+            <div>
+                <h5><%= userID %>님 안녕하세요!</h5>
+                <a href="/auth/logout">logout</a>
+                <a href="/auth/dropout">drop out</a>
+            </div>
         <% } %>
         <% if (!isLoggedin) { %>
             <div>
