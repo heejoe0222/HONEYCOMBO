@@ -1,7 +1,6 @@
 async function sendRequest(url, method, data=undefined) {
     return new Promise(function (resolve, reject){
       const xhr = new XMLHttpRequest();
-      let result = undefined;
       xhr.open(method, url)
 
       if (data) {
@@ -19,6 +18,21 @@ async function sendRequest(url, method, data=undefined) {
 }
 
 const honeycomboAPI = {
+    dropoutUser: async (data) => {
+        let url = '/auth/dropout/dropUser';
+        let method = "POST";
+        let result = await sendRequest(url, method, data);
+        return result;
+    },
+
+    postLogin: async (data) => {
+        let url = 'http://localhost:3000/auth/login';
+        let method = "POST";
+        let result = await sendRequest(url, method, data);
+        console.log(result);
+        return result;
+    },
+
     getProduct: async (url) => {
         let method = "GET";
         let result = await sendRequest(url, method);
