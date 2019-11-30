@@ -83,63 +83,6 @@
 </section>
 
 <a href="/recipe/writeRecipe">글쓰기</a>
-
-<!--ajax javascript part-->
-<script>
-    document.querySelector('.showWrap').addEventListener('click', function (e) {
-        let url, method, data, fn;
-        const target = e.target;
-        const li = target.closest('LI');
-        const showResult = document.querySelector(".defaultResult");
-        const type = li.className;
-
-        if (target.tagName !== "BUTTON") return;
-
-        switch (type) {
-            case "recipePriceSearch":
-                url = "/recipe/mainRecipe/search"
-                method = "POST"
-                // all elements select in form tag by name - maxPrice, minPrice
-                let inputs = [].slice.call(document.querySelector("form").elements);
-                data = inputs.reduce(function (pre, next) {
-                    pre[next.name] = next.value;
-                    return pre;
-                }, {});
-
-                fn = function (recipeList) {
-                    if (recipeList.result === 1) {
-                        // TODO : show result in default section
-                        for (var i = 0; i < recipeList.items.length; i++) {
-                            showResult.innerHTML = recipeList.items[i].TITLE;
-                        }
-                    } else {
-                        showResult.innerHTML = "일치하는 레시피 없음"
-                    }
-                }
-                break;
-        }
-        sendAjax(url, method, data, fn)
-    })
-
-    // @data : json format
-    function sendAjax(url, method, data, fn) {
-        const xhr = new XMLHttpRequest()
-        xhr.open(method, url)
-
-        if (data) {
-            data = JSON.stringify(data)
-            xhr.setRequestHeader('Content-Type', "application/json")
-        } else {
-            data = null
-        }
-        xhr.send(data)
-
-        xhr.addEventListener('load', function () {
-            const result = JSON.parse(xhr.responseText)
-            fn(result)
-        })
-    }
-</script>
-
+<script type="module" src="../../src/js/mainRecipe.js"></script>
 </body>
 </html>

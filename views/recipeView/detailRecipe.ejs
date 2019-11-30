@@ -29,7 +29,7 @@
         <% } %>
     </div>
 </nav>
-<section class="recipeInfo">
+<section class="recipeInfo" id="">
     <section class="thumnail">
         <% var imgSrc = '/images/' + items.recipeData[0].imgPath %>
         <% var recipeTitle = items.recipeData[0].title %>
@@ -102,81 +102,10 @@
         <a href="/recipe/writeRecipe">글쓰기</a>
     </section>
 </section>
-
-<!--댓글 수정 및 등록을 위한 스크립트-->
 <script>
-    document.querySelector('.comments').addEventListener('click', function (e) {
-        let url, method, data, fn;
-        const target = e.target;
-        const li = target.closest('li');
-        const eachComment = document.querySelector(".eachComment");
-        const type = li.className;
-        const title = '<%= recipeTitle %>'
-
-        if (target.tagName !== "BUTTON") return;
-
-        switch (type) {
-            case "writeComment":
-                url = "/recipe/detailRecipe/writeComment"
-                method = "POST"
-                // all elements select in form tag by name - maxPrice, minPrice
-                let inputs = [].slice.call(document.querySelector("form").elements);
-                data = inputs.reduce(function (pre, next) {
-                    pre[next.name] = next.value;
-                    return pre;
-                }, {});
-                data.recipeTitle = title;
-
-                fn = function (writeComment) {
-                    if (writeComment.result === 1) {
-                        console.log(writeComment)
-                        // TODO : redirect to rendering new comment
-                        // eachComment.innerHTML = writeComment.userId + '\t' + writeComment.contents + '\t' + writeComment.rate;
-                        window.location.href = '/recipe/detailRecipe/viewDetail/' + title
-                    } else {
-                        alert(writeComment.errMsg)
-                    }
-                }
-                break;
-            case "deleteComment":
-                url = "/recipe/detailRecipe/deleteComment/" + title
-                method = "DELETE"
-
-                fn = function (deleteComment) {
-                    if (deleteComment.result === 1) {
-                        console.log(deleteComment)
-                        alert(deleteComment.successMsg)
-                        window.location.href = '/recipe/detailRecipe/viewDetail/' + title
-                    } else {
-                        //TODO : redirection
-                        alert(deleteComment.errMsg)
-                    }
-                }
-                break;
-        }
-        sendNewComment(url, method, data, fn)
-    })
-
-    // @data : json format
-    function sendNewComment(url, method, data, fn) {
-        const xhr = new XMLHttpRequest()
-        xhr.open(method, url)
-
-        if (data) {
-            data = JSON.stringify(data)
-            console.log(data)
-            xhr.setRequestHeader('Content-Type', "application/json")
-        } else {
-            data = null
-        }
-        xhr.send(data)
-
-        xhr.addEventListener('load', function () {
-            const result = JSON.parse(xhr.responseText)
-            fn(result)
-        })
-    }
+    document.querySelector(".recipeInfo").id = '<%= recipeTitle %>';
 </script>
+<script type="module" src="../../../src/js/detailRecipe.js"></script>
 
 </body>
 </html>
