@@ -25,7 +25,6 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
     switch (type) {
         case "productSearch":
             url = "/product/main/search/" + li.getElementsByTagName("input")[0].value;
-            method = "GET"
             productList = await honeycomboAPI.getProduct(url);
             console.log(productList);
             await fn(showResult, productList, "일치하는 상품 이름 없음");
@@ -34,7 +33,6 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
         case "companySort":
             var companyName = target.name
             url = "/product/main/classify/" + companyName
-            method = "GET"
             productList = await honeycomboAPI.getProduct(url);
             await fn(showResult, productList, "회사별 상품 결과 없음");
             break;
