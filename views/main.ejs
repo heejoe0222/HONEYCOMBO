@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>HoneyCombo</title>
-    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet"  href="/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <div class="p-2">
             <a href="#">
                 <div class='logo-wrapper'>
-                    <img class='img-fluid' src="images/logo.png" width="150" height="75">
+                    <img class='img-fluid' src="/static/logo.png" width="150" height="75">
                 </div>
             </a>
         </div>
@@ -25,7 +25,7 @@
         <div class="ml-auto p-4 mt-2">
             <% if (isLoggedin)  { %>
                 <div>
-                    <h5 class="d-inline mt-1"><%= userID %>님 반가워요 :)</h5>&nbsp;
+                    <h5 class="d-inline mt-1"><%= ID %>님 반가워요 :)</h5>&nbsp;
                     <a class="btn btn-primary" id="logout" href="/auth/logout">로그아웃</a>
                     <a class="btn btn-primary" id="dropout" href="/auth/dropout">회원탈퇴</a>
                 </div>
