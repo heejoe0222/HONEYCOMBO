@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HoneyCombo</title>
+</head>
+<body>
+
+<div class="">
+    <form action="/auth/login" method="post">
+        ID : <input type="text" name="ID"/> <br/>
+        PW : <input type="password" name="PW"/> <br/>
+        <input class="loginBtn" type="submit" value="로그인">
+    </form>
+
+    <p><a href="/auth/signup">Register</a></p>
+    <p><a href="/product/main">Home</a></p>
+
+    <div class="logResult"></div>
+</div>
+
+<!--Error Message - json form-->
+<script type="module" src="../../src/js/login.js"></script>
+
+</body>
+</html>

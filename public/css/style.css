@@ -1,0 +1,108 @@
+.jumbotron{
+  background-image: url("../images/static/jumbotron_img.png");
+  width: 80%;
+  height: 370px;
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+.container{
+  max-width: 1140px;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.prod-basket{
+  width:100%;
+  height: 300px;
+  border: 1px ridge;
+  border-color: #cccccc;
+  margin: 0 0 50px 0  !important;
+}
+
+.card{
+  width:250px;
+  height:270px;
+}
+
+.carousel-control-next, .carousel-control-prev{
+  width: 5% !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 0;
+  height: 0;
+  outline: black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after{
+
+  content: '>';
+  font-size: 55px;
+  color: #FDBF00;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: #FDBF00;
+}
+
+.image-upload>input {
+  display: none;
+}
+
+.yellow{
+  color: #FFDA2D;
+}
+
+hr{
+  width:1100px;
+  height: 50px;
+  text-align: center;
+  color: #111111;
+}
+
+textarea{
+  width: 100%;
+  height: 500px;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+#signup, #dropout{
+  background-color: #FF9100;
+  border: none;
+}
+
+#login, #logout{
+  background-color: #FFDA2D;
+  border: none;
+}
+
+#write_submit{
+  background-color: #FFDA2D;
+  border: none;
+  float: right;
+  font-size: 1.2rem;
+}
+
+#search{
+  background-color: #FF641A;
+  border: none;
+}
+
+.featurette-divider {
+  margin-top: 5rem; /* Space out the Bootstrap <hr> more */
+}
