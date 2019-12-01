@@ -1,0 +1,68 @@
+.logincenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 300px;
+    width: 380px;
+    margin: -150px 0px 0px -200px;
+}
+.loginword{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.logininput{
+    height:35px;
+    width:350px;
+    border: 1px solid #fdbf00;
+    background: #ffffff;
+    margin-bottom: 10px;
+    border-radius:5px;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+    color: #cfcfcf
+}
+
+.login{
+    text-align: center;
+}
+
+.loginBtn{
+    border: none;
+    width:370px;
+    padding: 8px;
+    height:50px;
+    font-size: 15px;
+    background-color: #fdbf00;
+    border-radius:5px;
+    font-weight: 600;
+    margin: 3px;
+}
+
+.dropoutBtn{
+
+    border: none;
+    width:370px;
+    padding: 8px;
+    height:50px;
+    font-size: 15px;
+    background-color: #fdbf00;
+    border-radius:5px;
+    font-weight: 600;
+    margin: 3px;
+}
+
+.gomain{
+    text-align: right;
+}
+
+.logResult{
+    font-size: 14px;
+    margin: 3px;
+    text-align: left;
+}
+.mainbutton{
+    border: 0px;
+    font-size: 14px;
+}
