@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
+    <link rel="stylesheet" type="text/css" href="../../src/css/login.css">
 </head>
 <body>
-
-<div class="">
-    <form action="/auth/login" method="post">
-        ID : <input type="text" name="ID"/> <br/>
-        PW : <input type="password" name="PW"/> <br/>
-        <input class="loginBtn" type="submit" value="로그인">
-    </form>
-
-    <p><a href="/auth/signup">Register</a></p>
-    <p><a href="/product/main">Home</a></p>
-
-    <div class="logResult"></div>
-</div>
+    <div class="logincenter">
+        <div class="login">
+            <p class="loginword">로그인</p>
+            <form action="/auth/login" method="post">
+                <input class="logininput" type="text" placeholder="아이디를 입력해주세요" name="ID" /> <br />
+                <input class="logininput" type="password" placeholder="비밀번호를 입력해주세요" name="PW" /> <br />
+                <div class="logResult"></div>
+                <input class="loginBtn" type="submit" value="로그인">
+                <button type="button" class="loginBtn" onclick="location.href='/auth/signup'">회원가입</button>
+            </form>
+        </div>
+        <p class="gomain"><button class="mainbutton" type="button" onclick="location.href='/product/main'">홈으로</button></p>
+    </div>
 
 <!--Error Message - json form-->
 <script type="module" src="../../src/js/login.js"></script>
