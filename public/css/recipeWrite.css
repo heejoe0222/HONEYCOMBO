@@ -30,22 +30,13 @@ ul li {
   color: #333;
 }
 
-
 #nav_hr{
-  height: .25rem;
-  width: 40%;
-  margin: 0;
-  background: tomato;
-  border: none;
-}
-
-/* #nav_hr{
  height: .25rem;
  width: 40%;
- margin: 0 0 0 10.25rem;
+ margin: 0 0 0 10.1rem;
  background: tomato;
  border: none;
-} */
+}
 
 
 .prod-basket{
@@ -105,6 +96,8 @@ hr{
 textarea{
   width: 100%;
   height: 500px;
+  font-family: 'NanumSquare', sans-serif;
+  padding: 20px;
 }
 
 footer {
@@ -115,6 +108,7 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
 
 #signup, #dropout{
   background-color: #FF9100;
@@ -135,6 +129,16 @@ footer p {
 
 #search{
   background-color: #FF641A;
+  border: none;
+}
+
+#add{
+  background-color: #FFC80D;
+  border: none;
+}
+
+#delete{
+  background-color: #F57C20;
   border: none;
 }
 

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <meta charset="utf-8">
+      <title>HoneyCombo</title>
+    	<link rel="stylesheet"  href="recipeDetail.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+<body>
+  <header>
+      <div class="container d-flex mt-2">
+        <div class="p-2">
+          <a href="base.html">
+               <div class='logo-wrapper'>
+                 <img class='img-fluid' src="logo.png" width="200" height="70">
+               </div>
+          </a>
+        </div>
+        <div class="p-2">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul>
+              <li><a class="nav-a one p-3 text-dark ml-2 mr-5" href="#" style="text-decoration:none"><h3>상품</h3></a></li>
+              <li><a class="nav-a two p-3 text-dark ml-3" href="#" style="text-decoration:none"><h3>레시피</h3></a></li>
+              <hr id="nav_hr">
+            </ul>
+          </nav>
+        </div>
+
+        <div class="ml-auto p-4 mt-2">
+          <h5 class="d-inline mt-1">userID님 반가워요 :)</h5>&nbsp;
+          <a class="btn btn-primary" id="logout" href="#">로그아웃</a>
+          <a class="btn btn-primary" id="dropout" href="#">회원탈퇴</a>
+          <!-- <a class="btn btn-primary" id="login" href="#">로그인</a>
+          <a class="btn btn-primary" id="signup" href="#">회원가입</a> -->
+        </div>
+      </div>
+  </header>
+  <main>
+    <div class="container">
+      <h3 class="text-center"><b>writer 님의 레시피</b></h3>
+      <hr>
+
+      <div class="row">
+        <div class="col text-center mb-3">
+              <img src="http://mblogthumb4.phinf.naver.net/MjAxNjExMDNfMTkz/MDAxNDc4MTQ0MjU4OTkx.kgF2p_QTGPvbsBfY-x-kaxNn3ngPvdpQ68sYh2fUGGQg.jaQ2vpHL_JOt6PF-BiwkO32uZaicNM_s92MkNAzv7_Ug.JPEG.zaza8574/PB027769.JPG?type=w800" alt="recipe_img" width="400" height="300"/>
+        </div>
+      </div>
+      <div class="text-center my-3">
+        <h4 class="recipe-title">마크정식</h4>
+      </div>
+
+      <label class="col-sm-2 col-form-label" style="font-size:1.8rem">레시피 재료</label>
+
+      <div id="myCarousel" class="carousel slide p-2" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item pb-3 active">
+            <div class="row">
+               <div class="col col1">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+               <div class="col col2">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+               <div class="col col3">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+               <div class="col col4">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+            </div>
+          </div>
+          <div class="carousel-item pb-3">
+            <div class="row">
+               <div class="col col1">
+                  <div class="text-center">
+                      <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
+                      <h4 class="card-title">재료명</h4>
+                  </div>
+               </div>
+               <div class="col col2">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+               <div class="col col3">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+               <div class="col col4">
+                 <div class="text-center">
+                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
+                     <h4 class="card-title">재료명</h4>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+      <hr>
+
+      <div class="row justify-content-start">
+        <div class="col-2 ml-3">
+          <span style="font-size:1.8rem">평점</span>
+          <span class="ml-5" style="font-size:1.8rem">|</span>
+        </div>
+
+        <div class="col-2 align-self-center">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star-half checked"></span>
+        </div>
+
+        <div class="col-2">
+          <span id="rate" style="font-size:1.8rem">4.5</span>
+          <span style="font-size:1.8rem">점</span>
+        </div>
+
+        <div class="col-1">
+          <span style="font-size:1.8rem">가격 </span>
+        </div>
+        <div class="col-1">
+          <span style="font-size:1.8rem">|</span>
+        </div>
+        <div class="col-2">
+          <span id="price" style="font-size:1.8rem">7500</span>
+          <span style="font-size:1.8rem">원</span>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row text-left ">
+        <div class="col-1 mx-3">
+            <span style="font-size:1.8rem">공유</span>
+        </div>
+        <div class="col-2">
+          <img src="facebook.png" width=50 height=50>
+          <img class="ml-5" src="kakao.png" width=50 height=50>
+        </div>
+      </div>
+      <hr>
+
+      <div class="recipe mt-5 p-5">
+        <p id="recipe_content">
+          마크 정식 만들어보기<br><br>
+
+          1. 커피포트 혹은 주전자에 물 끓이기! 물 끓는 동안 소세지 15~30초 돌린다. <br>
+          2. 떡볶이와 스파게티에 뜨거운 물을 부어준다... 떡볶이에 물을 약간 덜 붓는게 좋음 <br>
+          3. 스파게티는 소시지로 눌러두고! 떡볶이는 전자레인지에 3분 돌려준다! <br>
+             TIP. 2분 지났을 때 한번 뒤적여주면 완벽크  <br>
+          ~ 3분 후~  <br>
+          4. 전자렌지에서 떡볶이 꺼내고, 물을 따라난 스파게티 면에 액상소스와 치즈가루 뿌린다. <br>
+          5. 두개를 섞~섞~ 골고루 잘 섞어쥼니다. <br>
+          6. 소세지를 썰어서 올려주고 치즈를 뿌려줌. <br>
+          7. 치즈 녹을 수 있도록 뚜껑 살짝 덮고 30초정도 돌려줌! <br>
+          ~ 30초 후~  <br>
+          완성!!!!!!!!! <br>
+          맛있게 먹는다 끝!!!!
+        </p>
+      </div>
+
+      <h3 class="text-center mt-5"><b>댓글</b></h3>
+      <hr>
+      <div class="row comment-row">
+        <div class="col-1 ml-3">
+          <h4 id="user_id">USER1</h4>
+        </div>
+        <h4 class="ml-3">|</h4>
+        <div class="col-8">
+          <h4 id="user_comment" class="ml-3">맛있음!!! 강.력.추.천</h4>
+        </div>
+        <h4 class="ml-3">|</h4>
+        <div class="col-2 ml-3 align-self-center">
+          <span class="fa fa-star checked" id="one"></span>
+          <span class="fa fa-star checked" id="two"></span>
+          <span class="fa fa-star checked" id="three"></span>
+          <span class="fa fa-star checked" id="four"></span>
+          <span class="fa fa-star-half checked" id="five"></span>
+        </div>
+        <hr>
+      </div>
+
+      <form class="comment mt-4 text-center" action="#" method="post">
+        <div class="form-group row align-items-center">
+          <label class="col-1 col-form-label ml-4" for="cmt_input"><h4>작성</h4></label>
+          <input type="text" style="font-size:1.5rem" id="cmt_input" class="form-control col-sm-7" placeholder="코멘트를 30자 이내로 남겨주세요 :)">
+          <div class="rating-group ml-4">
+            <input disabled checked class="rating_input rating_input--none" name="rating3" id="rating3-none" value="0" type="radio">
+            <label aria-label="1 star" class="rating_label" for="rating3-1"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
+            <input class="rating_input" name="rating3" id="rating3-1" value="1" type="radio">
+            <label aria-label="2 stars" class="rating_label" for="rating3-2"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
+            <input class="rating_input" name="rating3" id="rating3-2" value="2" type="radio">
+            <label aria-label="3 stars" class="rating_label" for="rating3-3"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
+            <input class="rating_input" name="rating3" id="rating3-3" value="3" type="radio">
+            <label aria-label="4 stars" class="rating_label" for="rating3-4"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
+            <input class="rating_input" name="rating3" id="rating3-4" value="4" type="radio">
+            <label aria-label="5 stars" class="rating_label" for="rating3-5"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
+            <input class="rating_input" name="rating3" id="rating3-5" value="5" type="radio">
+          </div>
+          <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
+        </div>
+      </form>
+
+
+
+
+
+    </div>
+    <footer class="text-muted">
+        <div class="container">
+            <hr class="featurette-divider">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>오픈SW플랫폼 Team17 이소망, 이채은, 최희조</p>
+        </div>
+    </footer>
+  </main>
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

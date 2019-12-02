@@ -5,10 +5,12 @@ async function fn(showResult, productList, result) {
         console.log(productList.items)
         // TODO : show result in default section
         for (var i = 0; i < productList.items.length; i++) {
-            showResult.innerHTML = productList.items[i].ITEMNAME;
+            var imgSrc = '/images/' + productList.items[i].IMGFILENAME;
+            showResult.innerHTML = 
+            '<ul><article id="item"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article></ul>';
         }
     } else {
-        showResult.innerHTML = result;
+        showResult.innerHTML = '<article id="item">해당 상품이 없습니다.</article>';
     }
 }
 
@@ -25,7 +27,6 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
     switch (type) {
         case "productSearch":
             url = "/product/main/search/" + li.getElementsByTagName("input")[0].value;
-            method = "GET"
             productList = await honeycomboAPI.getProduct(url);
             console.log(productList);
             await fn(showResult, productList, "일치하는 상품 이름 없음");
@@ -34,7 +35,6 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
         case "companySort":
             var companyName = target.name
             url = "/product/main/classify/" + companyName
-            method = "GET"
             productList = await honeycomboAPI.getProduct(url);
             await fn(showResult, productList, "회사별 상품 결과 없음");
             break;

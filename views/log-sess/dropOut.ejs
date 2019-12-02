@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
+    <link rel="stylesheet" type="text/css" href="../../src/css/login.css">
 </head>
+
 <body>
-<form action="/auth/dropout" method="post">
-    check PW : <input type="password" name="inputPW"/> <br/>
-</form>
-<button class="dropoutBtn">회원탈퇴</button>
-<p><a href="/product/main">Home</a></p>
-<script type="module" src="../../src/js/dropOut.js"></script>
+    <div class="logincenter">
+        <div class="login">
+            <p class="loginword">회원탈퇴</p>
+            <form action="/auth/dropout" method="post">
+                <input class="logininput" type="password" name="inputPW" placeholder="비밀번호를 확인해주세요"/> <br />
+            </form>
+            <button class="dropoutBtn">회원탈퇴</button>
+        </div>
+        <p class="gomain"><button class="mainbutton" type="button" onclick="location.href='/product/main'">홈으로</button>
+        </p>
+    </div>
+
+    <script type="module" src="../../src/js/dropOut.js"></script>
 </body>
+
 </html>

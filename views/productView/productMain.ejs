@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
+    <link rel="stylesheet" type="text/css" href="/src/css/productMain.css">
 </head>
 <body>
 <h3>메인 상품 페이지</h3>
@@ -31,40 +32,44 @@
 </nav>
 
 <section class="showWrap">
-    <ul>
-        <!--TODO: if text input area is empty, blocking button at front and don't send request to server-->
-        <li class="productSearch">
-            <input type="text" name="itemName">
-            <button>검색하기</button>
-        </li>
-        <li class="companySort">
-            <button name="GS">GS</button>
-            <button name="CU">CU</button>
-            <button name="7-Eleven">7-Eleven</button>
-        </li>
-        <li class="priceSort">
-            <!--            이 중 하나만 먼저-->
-            <button>인기상품순</button>
-            <button>최신등록순</button>
-            <button>낮은가격순</button>
-            <button>높은가격순</button>
-        </li>
-    </ul>
+    <div class="search">
+        <ul>
+            <!--TODO: if text input area is empty, blocking button at front and don't send request to server-->
+            <li class="productSearch">
+                <input type="text" name="itemName" placeholder="상품명 입력">
+                <button id="searchButton">검색</button>
+            </li>
+            <div class="sort">
+                <li class="companySort">
+                    <button name="GS">GS</button>
+                    <button name="CU">CU</button>
+                    <button name="7-Eleven">7-Eleven</button>
+                </li>
+                <li class="priceSort">
+                    <!--            이 중 하나만 먼저-->
+                    <button>인기상품순</button>
+                    <button>최신등록순</button>
+                    <button>낮은가격순</button>
+                    <button>높은가격순</button>
+                </li>
+            </div>
+        </ul>
+    </div>
     <!--TODO: show default result product list using 'see more' button-->
-    <section class="defaultResult">
+    <div class="defaultResult">
         <% if(items != null && items.length > 0){ %>
         <ul>
             <% for ( var i = 0; i < items.length; i++){ %>
-                <article>
+                <article id="item">
                     <!--TODO : change source path and change IMGFILENAME to format contained file-->
                     <% var imgSrc = '/images/' + items[i].IMGFILENAME %>
                     <% console.log(imgSrc) %>
-                    <h4><%= i %>번째 상품</h4>
-                    <li><%= items[i].ITEMNAME %></li>
-                    <li><%= items[i].ITEMPRICE %></li>
-                    <li><%= items[i].COMPANY %></li>
-                    <li><%= items[i].REGISTRATIONDATE %></li>
-                    <li><img src=<%= imgSrc %>></li>
+                    <!--<h4><%= i %>번째 상품</h4>-->
+                    <img src=<%= imgSrc %>>
+                    <li id="itemCompany"><%= items[i].COMPANY %></li>
+                    <li id="itemName"><%= items[i].ITEMNAME %></li>
+                    <li id="itemPrice"><%= items[i].ITEMPRICE %>원</li>
+                    <!--<li><%= items[i].REGISTRATIONDATE %></li>-->
                     <br>
                 </article>
             <% } %>
@@ -72,8 +77,8 @@
                 <p>상품 없음</p>
             <% } %>
         </ul>
-    </section>
+    </div>
 </section>
 </body>
-<script type="module" src="./src/js/productMain.js"></script>
+<script type="module" src="/src/js/productMain.js"></script>
 </html>
