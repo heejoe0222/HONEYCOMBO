@@ -44,7 +44,7 @@
             <div class="col-4 text-center mb-3 bg-light">
                 <div class="image-upload d-block mx-auto">
                     <label for="file-input">
-                        <img src="/static/upload_img.png" alt="upload_btn" width="200" height="200"/>
+                        <img src="upload_img.png" id="preview" alt="upload_btn" width="300" height="300"/>
                     </label>
                     <input id="file-input" type="file" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"/>
                 </div>
