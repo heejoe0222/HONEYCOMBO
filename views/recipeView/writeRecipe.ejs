@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
-    <link rel="stylesheet"  href="/style.css">
+    <link rel="stylesheet"  href="/recipeWrite.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -76,7 +76,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">재료명</h4>
                                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" class="btn btn-primary d-block">Add</a>
+                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
                                     </div>
                                 </div>
                             </div>
@@ -173,13 +173,13 @@
                     <div class="card-body text-center">
                         <h4 class="card-title">재료명</h4>
                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                        <a href="#" class="btn btn-primary d-block">Delete</a>
+                        <a href="#" id="delete" class="btn btn-primary d-block">Delete</a>
                     </div>
                 </div>
             </div>
 
 
-            <textarea name="editor" id="editor" ></textarea>
+            <textarea name="editor" id="editor" placeholder=" 꿀조합러님의 레시피를 자유롭게 표현해보세요!" ></textarea>
             <input type="submit" id="write_submit" value="작성완료" class="btn btn-primary m-3">
         </form>
     </div>
