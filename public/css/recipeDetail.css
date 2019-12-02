@@ -176,6 +176,23 @@ footer p {
   border: none;
 }
 
+#comment_correct, #recipe_correct{
+  background-color:#FF9100;
+  border: none;
+}
+
+#comment_delete, #recipe_delete{
+  background-color: #FF641A;
+  border: none;
+}
+
+#recipe_correct, #recipe_delete{
+  width: 100px;
+  height: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 
 .featurette-divider {
   margin-top: 5rem; /* Space out the Bootstrap <hr> more */

@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>HoneyCombo</title>
+    <link rel="stylesheet" href="/recipeDetail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
-<h1>레시피 상세보기 페이지</h1>
-<nav>
-    <!--    login, signup, logout, product, reciped -->
-    <ul>
-        <li><a href="/product/main">상품</a></li>
-        <li><a href="/recipe/mainRecipe">레시피</a></li>
-    </ul>
+<header>
+    <div class="container d-flex mt-2">
+        <div class="p-2">
+            <a href="main">
+                <div class='logo-wrapper'>
+                    <img class='img-fluid' src="/static/logo.png" width="200" height="70">
+                </div>
+            </a>
+        </div>
+        <div class="p-2">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <ul>
+                    <li><a class="nav-a one p-3 text-dark ml-2 mr-5" href="/product/main" style="text-decoration:none"><h3>상품</h3></a></li>
+                    <li><a class="nav-a two p-3 text-dark ml-3" href="/recipe/mainRecipe" style="text-decoration:none"><h3>레시피</h3></a></li>
+                    <hr id="nav_hr">
+                </ul>
+            </nav>
+        </div>
 
-    <div class="auth">
-        <% if (isLoggedin)  { %>
-            <div>
-                <h5><%= userID %>님 안녕하세요!</h5>
-                <a href="/auth/logout">logout</a>
-                <a href="/auth/dropout">drop out</a>
+        <% if (isLoggedin) { %>
+            <div class="ml-auto p-4 mt-2">
+                <h5 class="d-inline mt-1"> <%= userID  %>님 반가워요 :)</h5>&nbsp;
+                <a class="btn btn-primary" id="logout" href="/auth/logout">로그아웃</a>
+                <a class="btn btn-primary" id="dropout" href="/auth/dropout">회원탈퇴</a>
             </div>
         <% } %>
         <% if (!isLoggedin) { %>
-            <div>
-                <li><a href="/auth/login">login</a></li>
-                <li><a href="/auth/signup">signup</a></li>
+            <div class="ml-auto p-4 mt-2">
+                <a class="btn btn-primary" id="login" href="/auth/login">로그인</a>
+                <a class="btn btn-primary" id="signup" href="/auth/signup">회원가입</a>
             </div>
         <% } %>
     </div>
-</nav>
+</header>
+
 <section class="recipeInfo" id="">
     <section class="thumnail">
         <% var imgSrc = '/images/' + items.recipeData[0].imgPath %>
@@ -105,7 +121,7 @@
 <script>
     document.querySelector(".recipeInfo").id = '<%= recipeTitle %>';
 </script>
-<script type="module" src="../../../src/js/detailRecipe.js"></script>
+<script type="module" src="/js/detailRecipe.js"></script>
 
 </body>
 </html>

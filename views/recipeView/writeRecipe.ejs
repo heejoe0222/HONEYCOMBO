@@ -8,22 +8,23 @@
 </head>
 <body>
 <header>
-    <div class="container d-flex">
+    <div class="container d-flex mt-2">
         <div class="p-2">
             <a href="main">
                 <div class='logo-wrapper'>
-                    <img class='img-fluid' src="/static/logo.png" width="150" height="75">
+                    <img class='img-fluid' src="/static/logo.png" width="200" height="70">
                 </div>
             </a>
         </div>
         <div class="p-2">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="p-3 text-dark" href="/product/main"><h4>상품</h4></a>
-                <a class="p-3 text-dark" href="/recipe/mainRecipe"><h4>레시피</h4></a>
+                <ul>
+                    <li><a class="nav-a one p-3 text-dark ml-2 mr-5" href="/product/main" style="text-decoration:none"><h3>상품</h3></a></li>
+                    <li><a class="nav-a two p-3 text-dark ml-3" href="/recipe/mainRecipe" style="text-decoration:none"><h3>레시피</h3></a></li>
+                    <hr id="nav_hr">
+                </ul>
             </nav>
-        </div>main.css
-        recipeDetail.css
-        recipeWrite.css
+        </div>
 
         <% if (logged) { %>
             <div class="ml-auto p-4 mt-2">
@@ -44,7 +45,7 @@
             <div class="col-4 text-center mb-3 bg-light">
                 <div class="image-upload d-block mx-auto">
                     <label for="file-input">
-                        <img src="upload_img.png" id="preview" alt="upload_btn" width="300" height="300"/>
+                        <img src="/static/upload_img.png" id="preview" alt="upload_btn" width="300" height="300"/>
                     </label>
                     <input id="file-input" type="file" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"/>
                 </div>
