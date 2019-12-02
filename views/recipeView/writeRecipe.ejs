@@ -21,7 +21,9 @@
                 <a class="p-3 text-dark" href="/product/main"><h4>상품</h4></a>
                 <a class="p-3 text-dark" href="/recipe/mainRecipe"><h4>레시피</h4></a>
             </nav>
-        </div>
+        </div>main.css
+        recipeDetail.css
+        recipeWrite.css
 
         <% if (logged) { %>
             <div class="ml-auto p-4 mt-2">
@@ -42,7 +44,7 @@
             <div class="col-4 text-center mb-3 bg-light">
                 <div class="image-upload d-block mx-auto">
                     <label for="file-input">
-                        <img src="/static/upload_img.png" id ="preview" alt="upload_btn" width="200" height="200"/>
+                        <img src="/static/upload_img.png" alt="upload_btn" width="200" height="200"/>
                     </label>
                     <input id="file-input" type="file" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"/>
                 </div>
@@ -168,8 +170,16 @@
             </div>
 
 
-            <div class="row prod-basket">
-                <div class="card">
+            <div class="row prod-basket"> <!--여기도 내용 많아지면 carousel로...-->
+                <div class="card align-self-center ml-4">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">재료명</h4>
+                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
+                        <a href="#" id="delete" class="btn btn-primary d-block">Delete</a>
+                    </div>
+                </div>
+
+                <div class="card align-self-center ml-4">
                     <div class="card-body text-center">
                         <h4 class="card-title">재료명</h4>
                         <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
@@ -179,7 +189,7 @@
             </div>
 
 
-            <textarea name="editor" id="editor" placeholder=" 꿀조합러님의 레시피를 자유롭게 표현해보세요!" ></textarea>
+            <textarea name="editor" id="editor" cols="30" wrap="hard" style="font-size: 1.7rem" placeholder=" 꿀조합러님의 레시피를 자유롭게 표현해보세요!"></textarea>
             <input type="submit" id="write_submit" value="작성완료" class="btn btn-primary m-3">
         </form>
     </div>
