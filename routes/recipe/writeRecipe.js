@@ -57,6 +57,7 @@ router.post('/postRecipe', function(req, res) {
     var title = req.body.title;
     var tagContents = req.body.tagcontents // #xx#xx 사용한 재료
     var usedItemList = tagContents.split('#')
+    userItemList.shift()
     var difficulty = req.body.difficulty
     var totalTime = req.body.totaltime
     var videoUrl = req.body.videoUrl
