@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+          crossorigin="anonsymous">
 </head>
 <body>
 <header>
@@ -48,7 +48,6 @@
     <div class="container recipeInfo" id="">
         <% var imgSrc = '/images/' + items.recipeData[0].imgPath %>
         <% var recipeTitle = items.recipeData[0].title %>
-        <!-- <% var userId = items.recipeData[0].userId %>-->
 
         <!--recipeInfo-->
         <% if(isLoggedin && (userId == userID)) { %>
@@ -150,6 +149,7 @@
                 <span class="ml-5" style="font-size:1.8rem">|</span>
             </div>
 
+            <%if (avgRate != '평점 미등록'){%>
             <div class="col-2 align-self-center">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -157,15 +157,15 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star-half checked"></span>
             </div>
-            <%if (avgRate != '평점 미등록'){%>
-            <div class="col-2">
-                <span id="rate" style="font-size:1.8rem"><%= avgRate %></span>
-                <span style="font-size:1.8rem">점</span>
-            </div>
+
+                <div class="col-2">
+                    <span id="rate" style="font-size:1.8rem"><%= avgRate %></span>
+                    <span style="font-size:1.8rem">점</span>
+                </div>
             <%}%>
 
             <!-- 평가 아직 없는 경우 -->
-            <%else if (avgRate == '평점 미등록'){%>
+            <%if (avgRate === '평점 미등록'){%>
                 <div class="col-4 align-self-center">
                     <span style="font-size:1.6rem">아직 평가가 없어요ㅜㅜ</span>
                 </div>
@@ -199,7 +199,8 @@
                 <span style="font-size:1.8rem">|</span>
             </div>
             <div class="col-2">
-                <span id="time" style="font-size:1.8rem"><%= items.recipeData[0].totalTime %></span>
+                <%var min = items.recipeData[0].totalTime%>
+                <span id="time" style="font-size:1.8rem"><%= min.slice(0,min.length-3)%></span>
                 <span style="font-size:1.8rem">분</span>
             </div>
         </div>
@@ -211,8 +212,7 @@
                 <span style="font-size:1.8rem">공유</span>
             </div>
             <div class="col-2">
-                <a href="#"><img src="facebook.png" width=50 height=50></a>
-                <a href="#"><img class="ml-5" src="kakao.png" width=50 height=50></a>
+                <a href="#"><img class="ml-5" src="/static/kakao.png" width=50 height=50></a>
             </div>
         </div>
         <hr>
@@ -259,16 +259,15 @@
         <hr>
 
         <div class="comment-container">
-            <% var isCommentWritten = 0;
-               for(var i = 0; i < items.comment.length; i++) {
-                   var commentWriter = items.comment[i].userId;
-                   if(isLoggedin && (commentWriter == userID)){
-                       isCommentWritten=1;
-                       var commentContents = items.comment[i].commentContents;
-                       var rate = items.comment[i].rate;
-                       break;
-                    }
-                 } %>
+            <% var isCommentWritten = 0; %>
+            <%    for(var i = 0; i < items.comment.length; i++) { %>
+            <%       var commentWriter = items.comment[i].userId; %>
+            <%      if(isLoggedin && (commentWriter == userID)){%>
+            <%               isCommentWritten=1;%>
+            <%               var commentContents = items.comment[i].commentContents;%>
+            <%              var rate = items.comment[i].rate;%>
+            <%   }%>
+                <%      }%>
 
             <!--유저 댓글 있는 경우 (항상 위에): 댓글 작성하기 없음 -->
             <% if(isCommentWritten == 1) { %>
@@ -299,11 +298,11 @@
             <%}%>
 
             <% for(var i = 0; i < items.comment.length; i++) { %>
-                <% var commentIdx = String(i) %>
+                <% var commentIdx = String(i+1) %>
                 <% var userId = items.comment[i].userId %>
                 <% var commentContents = items.comment[i].commentContents %>
                 <% var rate = items.comment[i].rate %>
-                <% if(isLoggedin && (userId != userID)) { %>
+                <% if(!isLoggedin) { %>
                     <!--댓글 하나-->
                     <div class="row comment-row">
                         <div class="ml-5 mr-1" >
