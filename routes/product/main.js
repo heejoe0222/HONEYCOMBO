@@ -77,4 +77,23 @@ router.get('/classify/:COMPANY', function (req, res) {
         res.json(productByCompany)
     })
 })
+
+router.get('/sort/:PRICEORDER', function (req, res) {
+    var  priceOrder = req.params.PRICEORDER
+    var order = ""
+    var productByPrice = {}
+    if(priceOrder == 'low') order = "DESC"
+    else order = "ASC"
+    var query = conn.query('select * from product order by ITEMPRICE ?', [order], function (err, rows) {
+        if (err) throw err;
+        if (rows[0]) {
+            productByPrice.result = 1;
+            productByPrice.items = rows;
+        } else {
+            productByPrice.result = 0
+        }
+        res.json(productByPrice)
+    })
+})
+
 module.exports = router;
