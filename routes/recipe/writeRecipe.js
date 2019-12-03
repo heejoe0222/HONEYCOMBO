@@ -52,4 +52,84 @@ router.get('/', function (req, res) {
     })
 })
 
+router.post('/postRecipe', function(req, res) {
+    var id = req.user
+    var title = req.body.title;
+    var tagContents = req.body.tagcontents // #xx#xx 사용한 재료
+    var usedItemList = tagContents.split('#')
+    var difficulty = req.body.difficulty
+    var totalTime = req.body.totaltime
+    var videoUrl = req.body.videoUrl
+    var imgUrl = req.body.imgUrl
+
+    var contentList = {}
+    contentList.content1 = req.body.content1
+    contentList.content2 = req.body.content2
+    contentList.content3 = req.body.content3
+    contentList.content4 = req.body.content4
+    contentList.content5 = req.body.content5
+
+    var writeRecipeContent = {}
+
+    var postQuery = function (callback) {
+        var recipeCheckQuery = 'select TITLE from recipe where TITLE = ?';
+        conn.query(recipeCheckQuery, [title], function (err, rows, fields) {
+            if (err) return callback(err);
+            if (rows.length) {
+                // 제목이 같은 레시피가 있으면 에러 메세지 띄워줘
+                res.statusCode = 403
+                writeRecipeContent.result = 0;
+                writeRecipeContent.errMsg = "이미 존재하는 레시피 제목입니다."
+            } else { // 댓글이 없으면 insert 후 전송
+                // res.statusCode = 200
+                // writeRecipeContent.result = 1
+                console.log('insert recipe data')
+                // insert comment data and update rating!
+                var getTagQuery = 'select ITEMPRICE from PRODUCT where ITEMNAME in (?)'
+                var totalPrice = 0
+                var secondQuery = function(callback) {
+                    conn.query(getTagQuery, [usedItemList], function(err, rows2,) {
+                        if(err) {
+                            console.log("secondQuery err")
+                            throw err;
+                        }
+                        if(rows2.length) {
+                            for(var i = 0; i < rows2.length; i++) {
+                                totalPrice += rows2[i];
+                            }
+                            writeRecipeContent.totalPrice = totalPrice;
+                        }else {
+                            console.log("get tag and item price calculate err")
+                        }
+                        var insertQuery = 'INSERT INTO RECIPE ' +
+                            '(TITLE, USERID, IMGFILENAME, TAGCONTENTS, TOTALTIME, TOTALPRICE, DIFFICULTY, content1, content2, content3, content4, content5, VIDEOURL) ' +
+                            'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+                        var params = [title, id, imgUrl, tagContents, totalTime, totalPrice, difficulty, contentList[0], contentList[1], contentList[2], contentList[3], contentList[4], videoUrl]
+                        conn.query(insertQuery, params, function(err, rows3, fields) {
+                            if (rows.affectedRows > 0) {
+                                res.statusCode = 200
+                                writeRecipeContent.result = 1
+                                writeRecipeContent.title = title
+                            } else {
+                                res.statusCode = 204
+                                writeRecipeContent.result = 0
+                            }
+                        })
+                        callback(null, writeRecipeContent)
+                    })
+                }
+            }
+            // callback(null, writeComment);
+        });
+    };
+    // callback query result for ejs rendering
+    postQuery(function (err, writeRecipeContent) {
+        if (err) console.log("Database error!");
+        else {
+            console.log(writeRecipeContent)
+            var redirectPath = './recipe/detailRecipe/viewDetail/' + writeRecipeContent.title
+            res.redirect(redirectPath)
+        }
+    });
+})
 module.exports = router;
