@@ -13,10 +13,12 @@ async function fn(comment, title, state="dd"){
         window.location.href = '/recipe/detailRecipe/viewDetail/' + title
     } else {
         alert(comment.errMsg)
+        window.location.href = '/recipe/detailRecipe/viewDetail/' + title
     }
 }
 
-document.querySelector('.comments').addEventListener('click', async function (e) {
+document.querySelector('.enrollComment').addEventListener('click', async function (e) {
+    console.log("here")
     let url, method, data;
     const target = e.target;
     const li = target.closest('li');
@@ -32,9 +34,11 @@ document.querySelector('.comments').addEventListener('click', async function (e)
             // all elements select in form tag by name - maxPrice, minPrice
             let inputs = [].slice.call(document.querySelector("form").elements);
             data = inputs.reduce(function (pre, next) {
+                console.log(pre)
                 pre[next.name] = next.value;
                 return pre;
             }, {});
+            console.log(data)
             data.recipeTitle = title;
 
             result = await honeycomboAPI.postComment(data);

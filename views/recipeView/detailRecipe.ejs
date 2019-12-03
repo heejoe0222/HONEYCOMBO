@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonsymous">
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--    for kakao API-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
@@ -155,11 +156,11 @@
 
             <%if (avgRate != '평점 미등록'){%>
             <div class="col-2 align-self-center">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star-half checked"></span>
+                <!--                    수정사항 : span 개수를 rate 만큼으로 for loop 처리-->
+                <% for(var i = 0; i < parseInt(avgRate); i++) { %>
+                    <!--평점<%= rate %>-->
+                    <span class="fa fa-star checked"></span>
+                <%}%>
             </div>
 
                 <div class="col-2">
@@ -285,15 +286,16 @@
                     </div>
                     <h4 class="ml-3">|</h4> <!--평점을 별로 바꾸는 거 처리해야-->
                     <div class="col-2 ml-3 align-self-center ">
-                        <span class="fa fa-star checked" id="one"></span>
-                        <span class="fa fa-star checked" id="two"></span>
-                        <span class="fa fa-star checked" id="three"></span>
-                        <span class="fa fa-star checked" id="four"></span>
-                        <span class="fa fa-star-half checked" id="five"></span>
+                        <!--                    수정사항 : span 개수를 rate 만큼으로 for loop 처리-->
+                        <% for(var j = 0; j < rate; j++) { %>
+                            <!--평점<%= rate %>을 별로 바꾸는 거 처리해야-->
+                            <span class="fa fa-star checked"></span>
+                        <%}%>
                     </div>
                     <h4 class="ml-3">|</h4>
                     <div class="button-group ml-4">
-                        <button class="btn btn-primary mx-2" id="comment_correct" href="#">수정</button>
+<!--                        수정 버튼 삭제-->
+<!--                        <button class="btn btn-primary mx-2" id="comment_correct" href="#">수정</button>-->
                         <button class="btn btn-primary mx-2" id="comment_delete" href="#">삭제</button>
                     </div>
                 </div>
@@ -321,12 +323,12 @@
                             <h4 id="my_comment" class="ml-3"><%= commentContents %></h4>
                         </div>
                         <h4 class="ml-3">|</h4>
-                        <div class="col-2 ml-3 align-self-center"> <!--평점<%= rate %>을 별로 바꾸는 거 처리해야-->
+                        <div class="col-2 ml-3 align-self-center">
+<!--                    수정사항 : span 개수를 rate 만큼으로 for loop 처리-->
+                            <% for(var j = 0; j < rate; j++) { %>
+                            <!--평점<%= rate %>을 별로 바꾸는 거 처리해야-->
                             <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span>
+                            <%}%>
                         </div>
                         <hr>
                     </div>
@@ -336,26 +338,35 @@
 
         <!--댓글 작성하기: 유저 댓글 없음 -->
         <% if(isCommentWritten == 0) { %>
-        <form class="comment mt-4 text-center" action="#" method="post">
-            <div class="form-group row align-items-center">
-                <label class="col-1 col-form-label ml-4" for="cmt_input"><h4>작성</h4></label>
-                <input type="text" style="font-size:1.5rem" id="cmt_input" class="form-control col-sm-7" placeholder="코멘트를 30자 이내로 남겨주세요 :)">
-                <div class="rating-group ml-4">
-                    <input disabled checked class="rating_input rating_input--none" name="rating3" id="rating3-none" value="0" type="radio">
-                    <label aria-label="1 star" class="rating_label" for="rating3-1"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-                    <input class="rating_input" name="rating3" id="rating3-1" value="1" type="radio">
-                    <label aria-label="2 stars" class="rating_label" for="rating3-2"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-                    <input class="rating_input" name="rating3" id="rating3-2" value="2" type="radio">
-                    <label aria-label="3 stars" class="rating_label" for="rating3-3"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-                    <input class="rating_input" name="rating3" id="rating3-3" value="3" type="radio">
-                    <label aria-label="4 stars" class="rating_label" for="rating3-4"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-                    <input class="rating_input" name="rating3" id="rating3-4" value="4" type="radio">
-                    <label aria-label="5 stars" class="rating_label" for="rating3-5"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-                    <input class="rating_input" name="rating3" id="rating3-5" value="5" type="radio">
-                </div>
-                <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
-            </div>
-        </form>
+<!--     수정사항 : 라디오 버튼으로 된 별 평점 없애고 숫자 타입으로 넣어줌-->
+        <li class="writeComment">
+            <form class="search" action="" method="post">
+                <input type="text" name="commentWrite">
+                <input type="number" name="usersRate"> / 5점
+            </form>
+            <button class="enrollComment" id="searchButton">댓글 작성</button>
+<!--        <form class="comment mt-4 text-center" action="" method="post">-->
+<!--            <div class="form-group row align-items-center">-->
+<!--                <label class="col-1 col-form-label ml-4" for="cmt_input"><h4>작성</h4></label>-->
+<!--                <input type="text" style="font-size:1.5rem" id="cmt_input" class="form-control col-sm-7" placeholder="코멘트를 30자 이내로 남겨주세요 :)">-->
+<!--                <div class="rating-group ml-4">-->
+<!--                    <input disabled checked class="rating_input rating_input&#45;&#45;none" name="rating3" id="rating3-none" value="0" type="radio">-->
+<!--                    <label aria-label="1 star" class="rating_label" for="rating3-1"><i class="rating_icon rating_icon&#45;&#45;star fa fa-star"></i></label>-->
+<!--                    <input class="rating_input" name="rating3" id="rating3-1" value="1" type="radio">-->
+<!--                    <label aria-label="2 stars" class="rating_label" for="rating3-2"><i class="rating_icon rating_icon&#45;&#45;star fa fa-star"></i></label>-->
+<!--                    <input class="rating_input" name="rating3" id="rating3-2" value="2" type="radio">-->
+<!--                    <label aria-label="3 stars" class="rating_label" for="rating3-3"><i class="rating_icon rating_icon&#45;&#45;star fa fa-star"></i></label>-->
+<!--                    <input class="rating_input" name="rating3" id="rating3-3" value="3" type="radio">-->
+<!--                    <label aria-label="4 stars" class="rating_label" for="rating3-4"><i class="rating_icon rating_icon&#45;&#45;star fa fa-star"></i></label>-->
+<!--                    <input class="rating_input" name="rating3" id="rating3-4" value="4" type="radio">-->
+<!--                    <label aria-label="5 stars" class="rating_label" for="rating3-5"><i class="rating_icon rating_icon&#45;&#45;star fa fa-star"></i></label>-->
+<!--                    <input class="rating_input" name="rating3" id="rating3-5" value="5" type="radio">-->
+<!--                </div>-->
+<!--                <button id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">댓글작성</button>-->
+<!--&lt;!&ndash;                <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">&ndash;&gt;-->
+<!--            </div>-->
+<!--        </form>-->
+        </li>
         <% } %>
 
     </div>
