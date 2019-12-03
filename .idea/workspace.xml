@@ -67,26 +67,19 @@
     <configuration name="dbConnect.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/dbConnect.js" working-dir="$PROJECT_DIR$/routes">
       <method v="2" />
     </configuration>
-    <configuration name="logout.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/auth/logout.js" working-dir="$PROJECT_DIR$/routes/auth">
+    <configuration name="detailRecipe.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/recipe/detailRecipe.js" working-dir="$PROJECT_DIR$/routes/recipe">
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
+    <configuration name="logout.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/auth/logout.js" working-dir="$PROJECT_DIR$/routes/auth">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.app.js" />
+        <item itemvalue="Node.js.detailRecipe.js" />
         <item itemvalue="Node.js.dbConnect.js" />
         <item itemvalue="Node.js.logout.js" />
         <item itemvalue="JavaScript Debug.signup.ejs" />
-        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -113,6 +106,7 @@
       <workItem from="1575176633032" duration="4103000" />
       <workItem from="1575215604170" duration="5178000" />
       <workItem from="1575276931974" duration="167000" />
+      <workItem from="1575340555631" duration="3394000" />
     </task>
     <servers />
   </component>
