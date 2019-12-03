@@ -40,6 +40,18 @@ router.get('/', function(req, res) {
     }
     res.render('./main.ejs', indexInfo)
 })
+router.get('/index', function(req, res) {
+    var id = req.user
+    var indexInfo = {}
+
+    if (!id) {
+        indexInfo.isLoggedin = false;
+    } else {
+        indexInfo.isLoggedin = true;
+        indexInfo.userID = id;
+    }
+    res.render('./main.ejs', indexInfo)
+})
 
 
 module.exports = router;
