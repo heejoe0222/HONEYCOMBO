@@ -6,7 +6,7 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
     for(var i=0;i<tagcontentsAll.length;i++){
         tagcontents += '#'+tagcontentsAll[i].value;
     }
-    var difficulty = ''; //상중하 중 하나
+    var difficulty = ''; //mid/low/high 중 하나
     var totaltime = document.querySelector('#rcp_time').value;
     var videoUrl = '';
     var content1 = '';
