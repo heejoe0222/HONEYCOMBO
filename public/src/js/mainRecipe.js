@@ -4,6 +4,9 @@ async function fn(recipeList, showResult, comment) {
     console.log(recipeList)
     if (recipeList.items.length >0) {
         // TODO : show result in default section
+
+        var start = '<div class="existRecipe">총 <a>'+length+'</a>개의 레시피 </div><ul>'
+        var articles = '';
         for (var i = 0; i < recipeList.items.length; i++) {
             var length = recipeList.items.length;
             var imgSrc = '/images/' + recipeList.items[i].IMGFILENAME;
@@ -13,10 +16,7 @@ async function fn(recipeList, showResult, comment) {
             var actionUrl = "/recipe/detailRecipe/viewDetail/" + tempTitle;
 
 
-            showResult.innerHTML = 
-            '<div class="existRecipe">총 <a>'+length+'</a>개의 레시피 </div>\
-            <ul>\
-                    <article class="recipe">\
+            articles += '<article class="recipe">\
                         <li class="seeDetail">\
                             <form action="'+actionUrl+'method="get">\
                                 <input id="recipeimage" type="image" src="'+imgSrc+'" alt="Submit Form" />\
@@ -28,9 +28,9 @@ async function fn(recipeList, showResult, comment) {
                         <li id="recipeItem"><a>필요한 재료:</a>\
                             '+subItemList.join('|').slice(1,)+'\
                         </li>\
-                    </article>\
-            </ul>';
+                    </article>';
         }
+        showResult.innerHTML = '<div class="existRecipe">총 <a>'+length+'</a>개의 레시피 </div><ul>' + articles +'</ul>';
     } else {
         showResult.innerHTML = comment;
     }

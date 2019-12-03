@@ -4,11 +4,12 @@ async function fn(showResult, productList, result) {
     if (productList.result === 1) {
         console.log(productList.items)
         // TODO : show result in default section
+        var article = '';
         for (var i = 0; i < productList.items.length; i++) {
             var imgSrc = '/images/' + productList.items[i].IMGFILENAME;
-            showResult.innerHTML = 
-            '<ul><article id="item"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article></ul>';
+            article += '<article id="item"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article>';
         }
+        showResult.innerHTML = '<ul>'+article+'</ul>';
     } else {
         showResult.innerHTML = '<article id="item">해당 상품이 없습니다.</article>';
     }
