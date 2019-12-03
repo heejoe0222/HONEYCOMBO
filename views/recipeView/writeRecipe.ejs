@@ -189,8 +189,27 @@
                 </div>
             </div>
 
+            <div class="row">
+                <label class="col-sm-2 col-form-label" >난이도 선택</label>
+                <div class="btn-group btn-group-toggle col-3" data-toggle="buttons">
+                    <label class="btn btn-warning diff">
+                        <input type="radio"> 상
+                    </label>
+                    <label class="btn btn-warning diff">
+                        <input type="radio" > 중
+                    </label>
+                    <label class="btn btn-warning diff">
+                        <input type="radio" > 하
+                    </label>
+                </div>
+                <div class="col-2">
+                </div>
+                <label class="col-sm-1 col-form-label ml-5" for="rcp_title">소요 시간</label>
+                <input type="text" id="rcp_time" class="form-control col-sm-3" placeholder="분 단위로 입력해주세요">
+                <label class="ml-3 align-self-center">분</label>
+            </div>
 
-            <textarea name="editor" id="editor" cols="30" wrap="hard" style="font-size: 1.7rem" placeholder=" 꿀조합러님의 레시피를 자유롭게 표현해보세요!"></textarea>
+            <textarea class="mt-5" name="editor" id="editor" cols="30" wrap="hard" style="font-size: 1.7rem" placeholder=" 꿀조합러님의 레시피를 자유롭게 표현해보세요!"></textarea>
             <input type="submit" id="write_submit" value="작성완료" class="btn btn-primary m-3">
         </form>
     </div>
