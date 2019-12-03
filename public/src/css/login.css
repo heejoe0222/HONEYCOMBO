@@ -23,7 +23,7 @@ body{
 .logincenter {
      font-family: 'NanumSquare', sans-serif;
      position: absolute;
-     top: 65%;
+     top: 50%;
      left: 50%;
      height: 300px;
      width: 380px;
@@ -33,7 +33,7 @@ body{
 .signupcenter {
     font-family: 'NanumSquare', sans-serif;
     position: absolute;
-    top: 85%;
+    top: 50%;
     left: 50%;
     height: 300px;
     width: 380px;
