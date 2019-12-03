@@ -60,3 +60,12 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
             break;
     }
 });
+
+document.querySelector('#tagsButton').addEventListener('click', async function (e) {
+    let tags = $('#tags').tagEditor('getTags')[0].tags;
+    let data = "#" + tags.join('#');
+    let url = "/recipe/mainRecipe/search/" + data;
+
+    let result = await honeycomboAPI.getRecipeSearch(url);
+    await fn(result, showResult, "일치하는 레시피가 없습니다.");
+});

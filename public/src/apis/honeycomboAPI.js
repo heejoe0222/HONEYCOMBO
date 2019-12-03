@@ -67,6 +67,12 @@ const honeycomboAPI = {
         return result;
     },
 
+    getRecipeSearch: async (url) => {
+        let method = "GET"
+        let result = await sendRequest(url, method);
+        return result;
+    },
+
     postUserRecipe: async (data) => {
         let url = "/recipe/writeRecipe/postRecipe"
         let method = "POST"
