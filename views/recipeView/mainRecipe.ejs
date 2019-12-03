@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
     <link rel="stylesheet" type="text/css" href="../../src/css/mainRecipe.css">
+    <link rel="stylesheet" href="../../src/js/tags/jquery.tag-editor.css">
 </head>
 <body>
 <h1>레시피 메인 페이지</h1>
@@ -44,6 +45,12 @@
                     <input type="text" name="maxPrice" placeholder="원">
                 </form>
                 <button class="search" id="searchButton">검색</button>
+            </li>
+
+            <li class="recipeTagSearch">
+                    <a class="search" id="searchword">태그검색 |</a>
+                    <textarea class="search" id="tags"></textarea>
+                    <button class="search" id="tagsButton">검색</button>
             </li>
         </ul>
     </div>
@@ -87,6 +94,25 @@
         </ul>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+<script src="../../src/js/tags/jquery.caret.min.js"></script>
+<script src="../../src/js/tags/jquery.tag-editor.js"></script>
+<script>
+        // jQuery UI autocomplete extension - suggest labels may contain HTML tags
+        // github.com/scottgonzalez/jquery-ui-extensions/blob/master/src/autocomplete/jquery.ui.autocomplete.html.js
+        $(function () {
+            $('#tags').tagEditor({
+                delimiter: '# ',
+                placeholder: '검색할 상품 태그들을 입력해주세요...'
+            }).css('display', 'block').attr('readonly', true);
+        });
+
+        document.querySelector('#tagsButton').addEventListener('click', async function (e) {
+            let tags = $('#tags').tagEditor('getTags')[0].tags;
+            console.log(tags);
+        });
+</script>
 <script type="module" src="../../src/js/mainRecipe.js"></script>
 </body>
 </html>

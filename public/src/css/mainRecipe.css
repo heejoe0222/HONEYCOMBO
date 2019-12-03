@@ -17,6 +17,11 @@ input{
 .recipePriceSearch{
     font-size: 12px;
 }
+.recipeTagSearch{
+    margin-top: 30px;
+    clear: both;
+    width:400px;
+}
 .search{
     float:left;
     font-size: 12px;
