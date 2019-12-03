@@ -85,6 +85,12 @@ ul li {
   color: #FFDA2D;
 }
 
+.diff{
+  width: 100px;
+  height: 40px;
+  color: white;
+}
+
 
 hr{
   width:1100px;
@@ -141,6 +147,7 @@ footer p {
   background-color: #F57C20;
   border: none;
 }
+
 
 .featurette-divider {
   margin-top: 5rem; /* Space out the Bootstrap <hr> more */
