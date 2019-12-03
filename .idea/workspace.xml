@@ -4,9 +4,14 @@
     <list default="true" id="c2dfc577-40d0-48ab-9918-a21d773c3d30" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/public/src/js/detailRecipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/js/detailRecipe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/recipeView/detailRecipe.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/recipeView/detailRecipe.ejs" afterDir="false" />
+=======
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/routes/recipe/writeRecipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/recipe/writeRecipe.js" afterDir="false" />
 =======
 >>>>>>> 2fbb49f00dc2fce2363eff4b688f3e8930b263ad
+>>>>>>> 9210605a5386e0a9b79f1b2b545fbc54e626b91e
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,9 +117,14 @@
       <workItem from="1575276931974" duration="167000" />
 <<<<<<< HEAD
       <workItem from="1575340555631" duration="13732000" />
+      <workItem from="1575358379259" duration="9534000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1575340555631" duration="13732000" />
 =======
       <workItem from="1575340555631" duration="7674000" />
 >>>>>>> 2fbb49f00dc2fce2363eff4b688f3e8930b263ad
+>>>>>>> 9210605a5386e0a9b79f1b2b545fbc54e626b91e
     </task>
     <servers />
   </component>
