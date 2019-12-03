@@ -25,12 +25,13 @@ router.get('/viewDetail/:TITLE', function (req, res) {
 
     var firstQuery = function (callback) {
         var recipeQuery = 'select IMGFILENAME as imgPath, TITLE as title, TOTALPRICE as totalPrice, ' +
-            'TOTALTIME as totalTime, DIFFICULTY as difficulty, CONTENTS as recipeContents ' +
+            'TOTALTIME as totalTime, DIFFICULTY as difficulty, content1, content2, content3, content4, content5 ' + //CONTENTS as recipeContents ' +
             'from recipe where TITLE ="' + title + '";'
         var commentQuery = 'select comment.USERID as userId, COMMENTCONTENTS as commentContents, RATE as rate ' +
             'from comment inner join recipe on comment.RECIPETITLE=recipe.TITLE where TITLE="' + title + '";'
         var tagQuery = 'select TAGCONTENTS as productList from recipe where TITLE = "' + title + '";'
         var productQuery = 'select IMGFILENAME as imgPath, ITEMNAME as itemName, ITEMPRICE as itemPrice from product where ITEMNAME in (?)'
+        console.log(recipeQuery)
 
         conn.query(recipeQuery + commentQuery + tagQuery, function (err, rows, fields) {
             if (err) return callback(err)
