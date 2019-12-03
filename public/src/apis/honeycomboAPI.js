@@ -67,7 +67,7 @@ const honeycomboAPI = {
         return result;
     },
 
-    getRecipeSearch: async (url) => {
+    getTagSearch: async (url) => {
         let method = "GET"
         let result = await sendRequest(url, method);
         return result;

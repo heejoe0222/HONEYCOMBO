@@ -62,10 +62,12 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
 });
 
 document.querySelector('#tagsButton').addEventListener('click', async function (e) {
+    const showResult = document.querySelector(".defaultResult");
     let tags = $('#tags').tagEditor('getTags')[0].tags;
-    let data = "#" + tags.join('#');
+    let data = "-" + tags.join('-');
     let url = "/recipe/mainRecipe/search/" + data;
 
-    let result = await honeycomboAPI.getRecipeSearch(url);
+    let result = await honeycomboAPI.getTagSearch(url);
+    console.log(result)
     await fn(result, showResult, "일치하는 레시피가 없습니다.");
 });
