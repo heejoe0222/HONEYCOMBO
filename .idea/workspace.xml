@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c2dfc577-40d0-48ab-9918-a21d773c3d30" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/recipe/writeRecipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/recipe/writeRecipe.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,9 +59,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
-    <configuration name="signup.ejs" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Honey-Combo/views/log-sess/signup.ejs" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
     <configuration name="app.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -70,16 +68,19 @@
     <configuration name="detailRecipe.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/recipe/detailRecipe.js" working-dir="$PROJECT_DIR$/routes/recipe">
       <method v="2" />
     </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/index.js" working-dir="$PROJECT_DIR$/routes">
+      <method v="2" />
+    </configuration>
     <configuration name="logout.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/auth/logout.js" working-dir="$PROJECT_DIR$/routes/auth">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.app.js" />
+        <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.detailRecipe.js" />
         <item itemvalue="Node.js.dbConnect.js" />
         <item itemvalue="Node.js.logout.js" />
-        <item itemvalue="JavaScript Debug.signup.ejs" />
       </list>
     </recent_temporary>
   </component>
@@ -106,7 +107,7 @@
       <workItem from="1575176633032" duration="4103000" />
       <workItem from="1575215604170" duration="5178000" />
       <workItem from="1575276931974" duration="167000" />
-      <workItem from="1575340555631" duration="7674000" />
+      <workItem from="1575340555631" duration="13732000" />
     </task>
     <servers />
   </component>
