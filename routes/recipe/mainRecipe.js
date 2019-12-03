@@ -71,10 +71,12 @@ router.post('/search', function (req, res) {
 
 router.get('/search/:TAG', function(req, res) {
     var itemListTag = req.params.TAG
-    var itemList = itemList.split('#')
-    itemList = itemList.shift() // remove ' '
+    var itemList = itemListTag.split('-')
+    itemList.shift() // remove ' '
     var recipeTitleList = []
-    var recipeTagData = {}
+    var noneDupRecipeTitle;
+    var lastRecipeTitle = []
+    var recipeTagData = {};
 
     for(var i = 0; i < itemList.length; i++) {
         var tempItem = itemList[i]
@@ -87,16 +89,17 @@ router.get('/search/:TAG', function(req, res) {
                 }
                 if(rows.length) {
                     for(var j = 0; j < rows.length; j++) {
-                        recipeTitleList.push(rows[i])
+                        recipeTitleList.push(rows[j].TITLE)
                     }
                     // 중복 타이틀 제거
-                    removeDupTitleList = (recipeTitleList) => recipeTitleList.filter((v,i) => recipteTitleList.indexOf(v) === i)
-                    removeDupTitleList(recipeTitleList);
+                    noneDupRecipeTitle = new Set(recipeTitleList)
+                    lastRecipeTitle = Array.from(noneDupRecipeTitle);
+                    console.log(lastRecipeTitle)
                 }
-
                 var recipeQuery = function(callback) {
                     var selectRecipe = 'select IMGFILENAME, TAGCONTENTS, TITLE, USERID, TOTALPRICE from recipe where TITLE in (?)'
-                    conn.query(searchRecipe, [removeDupTitleList], function(err, rows2, fields) {
+                    conn.query(selectRecipe, [lastRecipeTitle], function(err, rows2, fields) {
+                        console.log('here')
                         if(err) {
                             console.log('selectRecipeQuery db err')
                             throw err;
@@ -106,21 +109,27 @@ router.get('/search/:TAG', function(req, res) {
                         }else {
                             recipeTagData.items = ""
                         }
+                        res.json(recipeTagData)
                     })
                     callback(null, recipeTagData)
                 }
+                recipeQuery(function(err, recipeTagData) {
+                    if(err) {
+                        console.log("select recipe query err")
+                    }else {
+                        console.log('second callback here')
+                    }
+                })
             })
         }
         itemQuery(function(err, recipeTagData) {
             if(err) {
                 console.log("item query callback db err")
             }else {
-                res.json(recipeTagData)
+                console.log("first call back here")
             }
         })
-
     }
-
 })
 
 module.exports = router;
