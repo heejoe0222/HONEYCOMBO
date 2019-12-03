@@ -40,7 +40,7 @@
     <div class="container">
         <!--recipeInfo-->
       <h3 class="text-center"><b>writer 님의 레시피</b></h3>
-      <!-- <h3 class="text-center">내가 작성한 레시피</b></h3> -->
+      <!-- <h3 class="text-center"><b>내가 작성한 레시피</b></h3> -->
       <hr>
         <!--thumnail-->
       <div class="row">
@@ -164,6 +164,27 @@
         </div>
       </div>
       <hr>
+      <div class="row justify-content-start">
+        <div class="col-2 ml-3">
+          <span style="font-size:1.8rem">난이도</span>
+          <span class="ml-4" style="font-size:1.8rem">|</span>
+        </div>
+        <div class="col-4">
+          <span style="font-size:1.8rem"><b>중</b></span>
+        </div>
+
+        <div class="col-2 ">
+          <span style="font-size:1.8rem">소요시간 </span>
+        </div>
+        <div class="col-1">
+          <span style="font-size:1.8rem">|</span>
+        </div>
+        <div class="col-2">
+          <span id="time" style="font-size:1.8rem">3</span>
+          <span style="font-size:1.8rem">분</span>
+        </div>
+      </div>
+      <hr>
 
         <!--SNS-sharing-->
       <div class="row text-left ">
@@ -171,8 +192,8 @@
             <span style="font-size:1.8rem">공유</span>
         </div>
         <div class="col-2">
-          <img src="facebook.png" width=50 height=50>
-          <img class="ml-5" src="kakao.png" width=50 height=50>
+            <a href="#"><img src="facebook.png" width=50 height=50></a>
+            <a href="#"><img class="ml-5" src="kakao.png" width=50 height=50></a>
         </div>
       </div>
       <hr>
@@ -207,7 +228,9 @@
       </div>
 
       <div class="text-center my-3">
-        <button class="btn btn-outline-primary my-3" href="#" id="back_to_list">레시피 목록으로 돌아가기</button>
+          <a>
+              <button class="btn btn-outline-primary my-3" href="#" id="back_to_list">레시피 목록으로 돌아가기</button>
+          </a>
       </div>
 
       <!--comments-->
@@ -242,11 +265,15 @@
 
           <!--댓글 하나-->
         <div class="row comment-row">
+          <div class="ml-5 mr-1" >
+              <h4 id="index">1</h4>
+          </div>
+          <h4 class="ml-3">|</h4>
           <div class="col-1 ml-3">
             <h4 id="user_id">USER1</h4>
           </div>
           <h4 class="ml-3">|</h4>
-          <div class="col-8">
+          <div class="col-7">
             <h4 id="my_comment" class="ml-3">맛있음!!! 강.력.추.천</h4>
           </div>
           <h4 class="ml-3">|</h4>
