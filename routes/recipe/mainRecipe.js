@@ -69,4 +69,58 @@ router.post('/search', function (req, res) {
     })
 })
 
+router.get('/search/:TAG', function(req, res) {
+    var itemListTag = req.params.TAG
+    var itemList = itemList.split('#')
+    itemList = itemList.shift() // remove ' '
+    var recipeTitleList = []
+    var recipeTagData = {}
+
+    for(var i = 0; i < itemList.length; i++) {
+        var tempItem = itemList[i]
+        let removeDupTitleList;
+        var itemQuery = function(callback) {
+            var searchRecipe = 'select TITLE from recipe where TAGCONTENTS LIKE "%' + tempItem + '%"'
+            conn.query(searchRecipe, function(err, rows, fields) {
+                if(err) {
+                    console.log('tag query db err')
+                }
+                if(rows.length) {
+                    for(var j = 0; j < rows.length; j++) {
+                        recipeTitleList.push(rows[i])
+                    }
+                    // 중복 타이틀 제거
+                    removeDupTitleList = (recipeTitleList) => recipeTitleList.filter((v,i) => recipteTitleList.indexOf(v) === i)
+                    removeDupTitleList(recipeTitleList);
+                }
+
+                var recipeQuery = function(callback) {
+                    var selectRecipe = 'select IMGFILENAME, TAGCONTENTS, TITLE, USERID, TOTALPRICE from recipe where TITLE in (?)'
+                    conn.query(searchRecipe, [removeDupTitleList], function(err, rows2, fields) {
+                        if(err) {
+                            console.log('selectRecipeQuery db err')
+                            throw err;
+                        }
+                        if(rows2.length) {
+                            recipeTagData.items = rows2;
+                        }else {
+                            recipeTagData.items = ""
+                        }
+                    })
+                    callback(null, recipeTagData)
+                }
+            })
+        }
+        itemQuery(function(err, recipeTagData) {
+            if(err) {
+                console.log("item query callback db err")
+            }else {
+                res.json(recipeTagData)
+            }
+        })
+
+    }
+
+})
+
 module.exports = router;
