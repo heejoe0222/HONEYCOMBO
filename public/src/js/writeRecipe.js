@@ -22,12 +22,6 @@ function addClick(e) {
         </div>';
 }
 
-function delClick(name){
-    let delButton = document.querySelector('input[name='+name+']');
-    let allPath = delButton.parentNode.parentNode;
-    allPath.remove();
-}
-
 document.querySelector('#write_submit').addEventListener('click', async function (e) {
 
     var data = {};
