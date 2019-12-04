@@ -49,7 +49,7 @@ document.querySelector('#write_submit').addEventListener('click', async function
         data.content4 = document.querySelector('#step4').value;
         data.content5 = document.querySelector('#step5').value;
 
-        if(totaltime=="" || videoUrl=="" || content1=="" || title==""){
+        if(data.totaltime=="" || data.videoUrl=="" || data.content1=="" || data.title==""){
             alert("빈칸을 채워주세요!")
         }else{
             console.log(data);
@@ -59,7 +59,3 @@ document.querySelector('#write_submit').addEventListener('click', async function
         alert("빈칸을 채워주세요!");
     }
 });
-
-async function addButton(){
-    console.log("click");
-}
