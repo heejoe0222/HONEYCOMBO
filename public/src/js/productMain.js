@@ -16,7 +16,7 @@ async function fn(showResult, productList, result) {
 }
 
 document.querySelector('.showWrap').addEventListener('click', async function (e) {
-    let url, method;
+    let url;
     const target = e.target;
     const li = target.closest('LI');
     const showResult = document.querySelector(".defaultResult");
@@ -37,6 +37,14 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
             var companyName = target.name
             url = "/product/main/classify/" + companyName
             productList = await honeycomboAPI.getProduct(url);
+            await fn(showResult, productList, "회사별 상품 결과 없음");
+            break;
+        
+        case "priceSort":
+            var price = target.name;
+            url = "/product/main/sort/" + price;
+            productList = await honeycomboAPI.getProduct(url);
+            console.log
             await fn(showResult, productList, "회사별 상품 결과 없음");
             break;
     }
