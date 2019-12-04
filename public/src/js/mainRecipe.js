@@ -18,7 +18,7 @@ async function fn(recipeList, showResult, comment) {
 
             articles += '<article class="recipe">\
                         <li class="seeDetail">\
-                            <form action="'+actionUrl+'method="get">\
+                            <form action="'+actionUrl+'" method="get">\
                                 <input id="recipeimage" type="image" src="'+imgSrc+'" alt="Submit Form" />\
                             </form>\
                         </li>\
