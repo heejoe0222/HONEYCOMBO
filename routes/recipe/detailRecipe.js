@@ -31,7 +31,6 @@ router.get('/viewDetail/:TITLE', function (req, res) {
             'from comment inner join recipe on comment.RECIPETITLE=recipe.TITLE where TITLE="' + title + '";'
         var tagQuery = 'select TAGCONTENTS as productList from recipe where TITLE = "' + title + '";'
         var productQuery = 'select IMGFILENAME as imgPath, ITEMNAME as itemName, ITEMPRICE as itemPrice from product where ITEMNAME in (?)'
-        console.log(recipeQuery)
 
         conn.query(recipeQuery + commentQuery + tagQuery, function (err, rows, fields) {
             if (err) return callback(err)
@@ -70,7 +69,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
                         } else {
                             console.log("err")
                         }
-                        console.log("detail data : ")
+                        console.log("detail view data : ")
                         console.log(recipeDetailData.items)
                         callback(null, recipeDetailData)
                     })
@@ -93,7 +92,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
     };
 
     // callback query result for ejs rendering
-    console.log("default page rendering callback");
+    console.log("detail recipe view, default page rendering callback");
     firstQuery(function (err, recipeDetailData) {
         if (err) console.log("Database error!")
         else {
@@ -131,7 +130,7 @@ router.post('/writeComment', function (req, res) {
                     writeComment.userId = id
                     writeComment.contents = commentWrite
                     writeComment.rate = usersRate;
-                    console.log('insert comment data')
+
                     // insert comment data and update rating!
                     var insertQuery = 'INSERT INTO COMMENT (RECIPETITLE, USERID, COMMENTCONTENTS, RATE) values (?, ?, ?, ?)'
                     var params = [recipeTitle, id, commentWrite, usersRate]

@@ -57,7 +57,8 @@ router.post('/postRecipe', function(req, res) {
     var title = req.body.title;
     var tagContents = req.body.tagcontents // #xx#xx 사용한 재료
     var usedItemList = tagContents.split('#')
-    userItemList.shift()
+    usedItemList.shift()
+
     var difficulty = req.body.difficulty
     var totalTime = req.body.totaltime
     var videoUrl = req.body.videoUrl
@@ -81,10 +82,7 @@ router.post('/postRecipe', function(req, res) {
                 res.statusCode = 403
                 writeRecipeContent.result = 0;
                 writeRecipeContent.errMsg = "이미 존재하는 레시피 제목입니다."
-            } else { // 댓글이 없으면 insert 후 전송
-                // res.statusCode = 200
-                // writeRecipeContent.result = 1
-                console.log('insert recipe data')
+            } else {
                 // insert comment data and update rating!
                 var getTagQuery = 'select ITEMPRICE from PRODUCT where ITEMNAME in (?)'
                 var totalPrice = 0
@@ -96,29 +94,48 @@ router.post('/postRecipe', function(req, res) {
                         }
                         if(rows2.length) {
                             for(var i = 0; i < rows2.length; i++) {
-                                totalPrice += rows2[i];
+                                totalPrice += parseInt(rows2[i].ITEMPRICE);
                             }
                             writeRecipeContent.totalPrice = totalPrice;
                         }else {
                             console.log("get tag and item price calculate err")
                         }
+
                         var insertQuery = 'INSERT INTO RECIPE ' +
                             '(TITLE, USERID, IMGFILENAME, TAGCONTENTS, TOTALTIME, TOTALPRICE, DIFFICULTY, content1, content2, content3, content4, content5, VIDEOURL) ' +
                             'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-                        var params = [title, id, imgUrl, tagContents, totalTime, totalPrice, difficulty, contentList[0], contentList[1], contentList[2], contentList[3], contentList[4], videoUrl]
-                        conn.query(insertQuery, params, function(err, rows3, fields) {
-                            if (rows.affectedRows > 0) {
-                                res.statusCode = 200
-                                writeRecipeContent.result = 1
-                                writeRecipeContent.title = title
-                            } else {
-                                res.statusCode = 204
-                                writeRecipeContent.result = 0
+                        var params = [title, id, imgUrl, tagContents, totalTime, totalPrice, difficulty, contentList.content1, contentList.content2, contentList.content3, contentList.content4, contentList.content5, videoUrl]
+
+                        var thirdQuery = function(callback) {
+                            conn.query(insertQuery, params, function(err, rows3, fields) {
+                                console.log("query call success")
+                                if (rows.affectedRows > 0) {
+                                    res.statusCode = 200
+                                    writeRecipeContent.result = 1
+                                    writeRecipeContent.title = title
+                                } else {
+                                    res.statusCode = 204
+                                    writeRecipeContent.result = 0
+                                }
+                            })
+                            callback(null, writeRecipeContent)
+                        }
+                        thirdQuery(function(err, writeRecipeContent) {
+                            if(err) console.log("write recipe third query error")
+                            else {
+                                var redirectPath = '/recipe/detailRecipe/viewDetail/' + title
+                                console.log("redirect page to " + redirectPath)
+                                res.redirect(redirectPath)
                             }
                         })
-                        callback(null, writeRecipeContent)
                     })
                 }
+                secondQuery(function(err, writeRecipeContent) {
+                    if(err) console.log("write recipe's second query error");
+                    else {
+                        console.log("success insert")
+                    }
+                })
             }
             // callback(null, writeComment);
         });
@@ -128,8 +145,6 @@ router.post('/postRecipe', function(req, res) {
         if (err) console.log("Database error!");
         else {
             console.log(writeRecipeContent)
-            var redirectPath = './recipe/detailRecipe/viewDetail/' + writeRecipeContent.title
-            res.redirect(redirectPath)
         }
     });
 })
