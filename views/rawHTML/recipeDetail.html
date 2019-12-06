@@ -9,223 +9,180 @@
   </head>
 <body>
   <header>
-      <div class="container d-flex mt-2">
-        <div class="p-2">
-          <a href="base.html">
-               <div class='logo-wrapper'>
-                 <img class='img-fluid' src="logo.png" width="200" height="70">
-               </div>
-          </a>
-        </div>
-        <div class="p-2">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <ul>
-              <li><a class="nav-a one p-3 text-dark ml-2 mr-5" href="#" style="text-decoration:none"><h3>상품</h3></a></li>
-              <li><a class="nav-a two p-3 text-dark ml-3" href="#" style="text-decoration:none"><h3>레시피</h3></a></li>
-              <hr id="nav_hr">
-            </ul>
-          </nav>
-        </div>
+    <div class="container d-flex mt-2">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="p-2">
+                <a href="base.html">
+                    <div class='logo-wrapper'>
+                        <img class='img' src="logo.png" width="200" height="90">
+                    </div>
+                </a>
+            </div>
+            <div class="p-2">
+                <ul>
+                    <li><a class="nav-a one text-dark ml-2 mr-5" href="#" style="text-decoration:none"><h4>상품</h4></a></li>
+                    <li><a class="nav-a two text-dark ml-3" href="#" style="text-decoration:none"><h4>레시피</h4></a></li>
+                    <hr id="nav_hr">
+                </ul>
+            </div>
 
-        <div class="ml-auto p-4 mt-2">
-          <h5 class="d-inline mt-1">userID님 반가워요 :)</h5>&nbsp;
-          <a class="btn btn-primary" id="logout" href="#">로그아웃</a>
-          <a class="btn btn-primary" id="dropout" href="#">회원탈퇴</a>
-          <!-- <a class="btn btn-primary" id="login" href="#">로그인</a>
-          <a class="btn btn-primary" id="signup" href="#">회원가입</a> -->
-        </div>
-      </div>
+            <div class="ml-auto p-4 mt-2">
+                <h6 class="d-inline mt-1">userID님 반가워요 :)</h6>&nbsp;
+                <!-- <a class="btn btn-primary d-inline" id="logout" href="#">로그아웃</a>
+                <a class="btn btn-primary d-inline" id="dropout" href="#">회원탈퇴</a> -->
+                <a class="btn btn-primary" id="login" href="#">로그인</a>
+                <a class="btn btn-primary" id="signup" href="#">회원가입</a>
+            </div>
+        </nav>
+    </div>
   </header>
   <main>
     <div class="container">
         <!--recipeInfo-->
-      <h3 class="text-center"><b>writer 님의 레시피</b></h3>
-      <!-- <h3 class="text-center"><b>내가 작성한 레시피</b></h3> -->
-      <hr>
+      <h4 class="text-center"><b>writer 님의 레시피</b></h4>
+      <!--   <h4 class="text-center"><b>내가 작성한 레시피</b></h4> -->
+      <hr id="hr-line">
         <!--thumnail-->
       <div class="row">
         <div class="col text-center mb-3">
               <img src="http://mblogthumb4.phinf.naver.net/MjAxNjExMDNfMTkz/MDAxNDc4MTQ0MjU4OTkx.kgF2p_QTGPvbsBfY-x-kaxNn3ngPvdpQ68sYh2fUGGQg.jaQ2vpHL_JOt6PF-BiwkO32uZaicNM_s92MkNAzv7_Ug.JPEG.zaza8574/PB027769.JPG?type=w800" alt="recipe_img" width="400" height="300"/>
         </div>
       </div>
+
       <div class="text-center my-3">
         <h4 class="recipe-title">마크정식</h4>
       </div>
 
-      <label class="col-sm-2 col-form-label" style="font-size:1.8rem">레시피 재료</label>
-        <!--products-->
-      <div id="myCarousel" class="carousel slide p-2" data-ride="carousel" data-interval="false">
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item pb-3 active">
-            <div class="row">
-               <div class="col col1">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
-               <div class="col col2">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
-               <div class="col col3">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
-               <div class="col col4">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
-            </div>
-          </div>
-          <div class="carousel-item pb-3">
-            <div class="row">
-               <div class="col col1">
-                  <div class="text-center">
-                      <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                      <h4 class="card-title">재료명</h4>
+      <div class="recipeIngredient">
+        <label class="col-xs ml-2 col-form-label" style="font-size:1.3rem">레시피 재료</label>
+          <!--products-->
+          <div class="recipe-basket">
+            <div class="row mx-1">
+              <div class="card text-align align-self-center mx-2">
+                  <div class="card-body text-center">
+                    <h6 class="card-title my-1 mx-auto">꿀조합재료</h6>
+                    <img class="rounded mx-auto d-block" width=110 height=110 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
                   </div>
-               </div>
-               <div class="col col2">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
-               <div class="col col3">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
-               <div class="col col4">
-                 <div class="text-center">
-                     <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                     <h4 class="card-title">재료명</h4>
-                 </div>
-               </div>
+              </div>
+
+              <div class="card text-align align-self-center mx-2">
+                  <div class="card-body text-center">
+                    <h6 class="card-title my-1 mx-auto">꿀조합재료</h6>
+                    <img class="rounded mx-auto d-block" width=110 height=110 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
+                  </div>
+              </div>
+
+              <div class="card text-align align-self-center mx-2">
+                  <div class="card-body text-center">
+                    <h6 class="card-title my-1 mx-auto">꿀조합재료</h6>
+                    <img class="rounded mx-auto d-block" width=110 height=110 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
+                  </div>
+              </div>
             </div>
+          </div>
+        <hr>
+      </div>
+
+
+      <div class="recipeInfo">
+        <!--recipeRating-->
+        <div class="row justify-content-start">
+          <div class="col-xs ml-3">
+            <span style="font-size:1.3rem">평점</span>
+            <span class="mx-5" style="font-size:1.5rem">|</span>
+          </div>
+
+          <div class="col-xs mx-3 align-self-center">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star-half checked"></span>
+          </div>
+
+          <div class="col-xs mx-2 mr-5 align-self-center">
+            <span id="rate" style="font-size:1.3rem">4.5</span>
+            <span style="font-size:1.3rem">점</span>
+          </div>
+
+          <!-- 평가 아직 없는 경우 -->
+          <!-- <div class="col-xs mx-3 mr-5 align-self-center">
+            <span style="font-size:1.3rem">아직 평가가 없어요ㅜㅜ</span>
+          </div> -->
+
+          <div class="col-xs ml-5">
+            <span style="font-size:1.3rem">가격 </span>
+          </div>
+          <div class="col-xs mx-5">
+            <span style="font-size:1.5rem">|</span>
+          </div>
+          <div class="col-xs mx-3 align-self-center">
+            <span id="price" style="font-size:1.3rem">7500</span>
+            <span style="font-size:1.3rem">원</span>
           </div>
         </div>
 
-        <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        <hr>
+
+        <div class="row justify-content-start">
+          <div class="col-xs ml-3 mr-5">
+            <span class="mr-1" style="font-size:1.3rem">난이도</span>
+            <span class="mx-4" style="font-size:1.5rem">|</span>
+            <span class="mx-5" style="font-size:1.3rem"><b>중</b></span>
+          </div>
+
+          <div class="col-xs ml-5">
+            <div class="mx-5">
+              <span class="ml-4" style="font-size:1.3rem">소요시간 </span>
+              <span class="mx-5" style="font-size:1.5rem">|</span>
+              <span class="ml-3" id="time" style="font-size:1.3rem">3</span>
+              <span style="font-size:1.3rem">분</span>
+            </div>
+          </div>
+
+        </div>
+        <hr>
+
+        <div class="row justify-content-start">
+          <!--SNS-sharing-->
+          <div class="col-xs align-self-center ml-3">
+              <span style="font-size:1.3rem">공유</span>
+              <span class="mx-5" style="font-size:1.5rem">|</span>
+              <a href="#"><img class="ml-3" src="kakao.png" width=30 height=30></a>
+          </div>
+        </div>
+        <hr>
+
+
+
+
+        <div class="row text-left ">
+
+        </div>
 
       </div>
-      <hr>
-
-        <!--recipeRating-->
-      <div class="row justify-content-start">
-        <div class="col-2 ml-3">
-          <span style="font-size:1.8rem">평점</span>
-          <span class="ml-5" style="font-size:1.8rem">|</span>
-        </div>
-
-        <div class="col-2 align-self-center">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star-half checked"></span>
-        </div>
-
-        <div class="col-2">
-          <span id="rate" style="font-size:1.8rem">4.5</span>
-          <span style="font-size:1.8rem">점</span>
-        </div>
-
-        <!-- 평가 아직 없는 경우 -->
-        <!-- <div class="col-4 align-self-center">
-          <span style="font-size:1.6rem">아직 평가가 없어요ㅜㅜ</span>
-        </div> -->
-
-        <div class="col-1">
-          <span style="font-size:1.8rem">가격 </span>
-        </div>
-        <div class="col-1">
-          <span style="font-size:1.8rem">|</span>
-        </div>
-        <div class="col-2">
-          <span id="price" style="font-size:1.8rem">7500</span>
-          <span style="font-size:1.8rem">원</span>
-        </div>
-      </div>
-      <hr>
-      <div class="row justify-content-start">
-        <div class="col-2 ml-3">
-          <span style="font-size:1.8rem">난이도</span>
-          <span class="ml-4" style="font-size:1.8rem">|</span>
-        </div>
-        <div class="col-4">
-          <span style="font-size:1.8rem"><b>중</b></span>
-        </div>
-
-        <div class="col-2 ">
-          <span style="font-size:1.8rem">소요시간 </span>
-        </div>
-        <div class="col-1">
-          <span style="font-size:1.8rem">|</span>
-        </div>
-        <div class="col-2">
-          <span id="time" style="font-size:1.8rem">3</span>
-          <span style="font-size:1.8rem">분</span>
-        </div>
-      </div>
-      <hr>
-
-        <!--SNS-sharing-->
-      <div class="row text-left ">
-        <div class="col-1 mx-3">
-            <span style="font-size:1.8rem">공유</span>
-        </div>
-        <div class="col-2">
-            <a href="#"><img src="facebook.png" width=50 height=50></a>
-            <a href="#"><img class="ml-5" src="kakao.png" width=50 height=50></a>
-        </div>
-      </div>
-      <hr>
 
         <!--mainContents-->
-      <div class="recipe mt-5 p-5">
-        <p id="recipe_content">
-          마크 정식 만들어보기<br><br>
+      <div class="recipeContent">
+        <div class="recipe mt-5 p-5">
+          <p id="recipe_content">
+            마크 정식 만들어보기<br><br>
 
-          1. 커피포트 혹은 주전자에 물 끓이기! 물 끓는 동안 소세지 15~30초 돌린다. <br>
-          2. 떡볶이와 스파게티에 뜨거운 물을 부어준다... 떡볶이에 물을 약간 덜 붓는게 좋음 <br>
-          3. 스파게티는 소시지로 눌러두고! 떡볶이는 전자레인지에 3분 돌려준다! <br>
-             TIP. 2분 지났을 때 한번 뒤적여주면 완벽크  <br>
-          ~ 3분 후~  <br>
-          4. 전자렌지에서 떡볶이 꺼내고, 물을 따라난 스파게티 면에 액상소스와 치즈가루 뿌린다. <br>
-          5. 두개를 섞~섞~ 골고루 잘 섞어쥼니다. <br>
-          6. 소세지를 썰어서 올려주고 치즈를 뿌려줌. <br>
-          7. 치즈 녹을 수 있도록 뚜껑 살짝 덮고 30초정도 돌려줌! <br>
-          ~ 30초 후~  <br>
-          완성!!!!!!!!! <br>
-          맛있게 먹는다 끝!!!!
-        </p>
-      </div>
-
-      <!--내 글인 경우에만 뜬다-->
-      <div class="text-right my-4">
-        <div class="button-group">
-          <button class="btn btn-primary mx-2" id="recipe_correct" href="#">수정</button>
-          <button class="btn btn-primary mx-2" id="recipe_delete" href="#">삭제</button>
+            1. 커피포트 혹은 주전자에 물 끓이기! 물 끓는 동안 소세지 15~30초 돌린다. <br>
+            2. 떡볶이와 스파게티에 뜨거운 물을 부어준다... 떡볶이에 물을 약간 덜 붓는게 좋음 <br>
+            3. 스파게티는 소시지로 눌러두고! 떡볶이는 전자레인지에 3분 돌려준다! <br>
+               TIP. 2분 지났을 때 한번 뒤적여주면 완벽크  <br>
+            ~ 3분 후~  <br>
+            4. 전자렌지에서 떡볶이 꺼내고, 물을 따라난 스파게티 면에 액상소스와 치즈가루 뿌린다. <br>
+            5. 두개를 섞~섞~ 골고루 잘 섞어쥼니다. <br>
+            6. 소세지를 썰어서 올려주고 치즈를 뿌려줌. <br>
+            7. 치즈 녹을 수 있도록 뚜껑 살짝 덮고 30초정도 돌려줌! <br>
+            ~ 30초 후~  <br>
+            완성!!!!!!!!! <br>
+            맛있게 먹는다 끝!!!!
+          </p>
         </div>
-
-      </div>
+    </div>
 
       <div class="text-center my-3">
           <a>
@@ -234,94 +191,81 @@
       </div>
 
       <!--comments-->
-      <h3 class="text-center mt-5"><b>댓글</b></h3>
-      <hr>
-      <div class="comment-container">
-        <!--유저 댓글 있는 경우 (항상 위에): 댓글 작성하기 없음 -->
-        <div class="comment-mine">
-          <div class="row ml-3">
-              <h4><b>내가 작성한 댓글</b></h4>
-          </div>
-          <div class="row ml-3">
+      <h4 class="text-center mt-5"><b>댓글</b></h4>
+      <div class="commetList">
+        <hr>
+        <div class="comment-container">
+
+            <!--댓글 하나-->
+          <div class="row comment-row">
+            <div class="col-1 ml-5">
+              <h5 id="user_id">USER1</h5>
+            </div>
+            <h4 class="ml-3">|</h4>
             <div class="col-7">
-              <h4 id="user_comment">맛있음!!! 강.력.추.천</h4>
+              <h5 id="my_comment" class="ml-3">맛있음!!! 강.력.추.천</h5>
             </div>
             <h4 class="ml-3">|</h4>
             <div class="col-2 ml-3 align-self-center">
-              <span class="fa fa-star checked" id="one"></span>
-              <span class="fa fa-star checked" id="two"></span>
-              <span class="fa fa-star checked" id="three"></span>
-              <span class="fa fa-star checked" id="four"></span>
-              <span class="fa fa-star-half checked" id="five"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half checked"></span>
+            </div>
+            <!--내 댓글인 경우에만 뜸-->
+            <button class="btn btn-primary mx-2" id="comment_delete" href="#">삭제</button>
+            <hr>
+          </div>
+
+          <div class="row comment-row">
+            <div class="col-1 ml-5">
+              <h5 id="user_id">USER2</h5>
             </div>
             <h4 class="ml-3">|</h4>
-             <div class="button-group ml-4">
-               <button class="btn btn-primary mx-2" id="comment_correct" href="#">수정</button>
-               <button class="btn btn-primary mx-2" id="comment_delete" href="#">삭제</button>
-             </div>
+            <div class="col-7">
+              <h5 id="my_comment" class="ml-3">존맛탱~~~ 공유 감사리</h5>
+            </div>
+            <h4 class="ml-3">|</h4>
+            <div class="col-2 ml-3 align-self-center">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half checked"></span>
+            </div>
+            <hr>
           </div>
-          <hr>
+
         </div>
 
-          <!--댓글 하나-->
-        <div class="row comment-row">
-          <div class="ml-5 mr-1" >
-              <h4 id="index">1</h4>
-          </div>
-          <h4 class="ml-3">|</h4>
-          <div class="col-1 ml-3">
-            <h4 id="user_id">USER1</h4>
-          </div>
-          <h4 class="ml-3">|</h4>
-          <div class="col-7">
-            <h4 id="my_comment" class="ml-3">맛있음!!! 강.력.추.천</h4>
-          </div>
-          <h4 class="ml-3">|</h4>
-          <div class="col-2 ml-3 align-self-center">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star-half checked"></span>
-          </div>
-          <hr>
-        </div>
+        <!--댓글 작성하기: 유저 댓글 없음 -->
 
+        <form class="comment mt-4" action="/recipe/detailRecipe/writeComment" method="post">
+          <div class="form-group row justify-content-center align-items-center">
+            <label class="col-1 col-form-label ml-4" for="cmt_input"><h5>작성</h5></label>
+            <input type="text" name="commentWrite" style="font-size:1.2rem" id="cmt_input" class="form-control col-sm-7" placeholder="코멘트를 30자 이내로 남겨주세요 :)">
+            <div class="rating-group ml-4">
+              <span class="star-rating star-5">
+                <input type="radio" name="usersRate" value="1"><i></i>
+                <input type="radio" name="usersRate" value="2"><i></i>
+                <input type="radio" name="usersRate" value="3"><i></i>
+                <input type="radio" name="usersRate" value="4"><i></i>
+                <input type="radio" name="usersRate" value="5"><i></i>
+              </span>
+            </div>
+            <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
+          </div>
+        </form>
       </div>
 
-
-      <!--댓글 작성하기: 유저 댓글 없음 -->
-      <form class="comment mt-4 text-center" action="#" method="post">
-        <div class="form-group row align-items-center">
-          <label class="col-1 col-form-label ml-4" for="cmt_input"><h4>작성</h4></label>
-          <input type="text" style="font-size:1.5rem" id="cmt_input" class="form-control col-sm-7" placeholder="코멘트를 30자 이내로 남겨주세요 :)">
-          <div class="rating-group ml-4">
-            <input disabled checked class="rating_input rating_input--none" name="rating3" id="rating3-none" value="0" type="radio">
-            <label aria-label="1 star" class="rating_label" for="rating3-1"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-            <input class="rating_input" name="rating3" id="rating3-1" value="1" type="radio">
-            <label aria-label="2 stars" class="rating_label" for="rating3-2"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-            <input class="rating_input" name="rating3" id="rating3-2" value="2" type="radio">
-            <label aria-label="3 stars" class="rating_label" for="rating3-3"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-            <input class="rating_input" name="rating3" id="rating3-3" value="3" type="radio">
-            <label aria-label="4 stars" class="rating_label" for="rating3-4"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-            <input class="rating_input" name="rating3" id="rating3-4" value="4" type="radio">
-            <label aria-label="5 stars" class="rating_label" for="rating3-5"><i class="rating_icon rating_icon--star fa fa-star"></i></label>
-            <input class="rating_input" name="rating3" id="rating3-5" value="5" type="radio">
-          </div>
-          <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
-        </div>
-      </form>
-
-
     </div>
-    <footer class="text-muted">
-        <div class="container">
-            <hr class="featurette-divider">
+    <footer class="text-muted text-center">
+            <hr class="featurette-divider ">
             <p class="float-right">
                 <a href="#">Back to top</a>
             </p>
-            <p>오픈SW플랫폼 Team17 이소망, 이채은, 최희조</p>
-        </div>
+            <p class="text-left">오픈SW플랫폼 Team17 이소망, 이채은, 최희조</p>
     </footer>
   </main>
 

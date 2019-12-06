@@ -37,7 +37,7 @@ ul li {
   color: #333;
 }
 
-.form, .recipe, .youtube, .recipe-time{
+.form, .recipe, .recipe-time{
   width:70%;
   margin: 0 auto;
 }
@@ -81,7 +81,7 @@ ul li {
 }
 .carousel-inner{
   margin: auto;
-  width: 90% !important;
+  width: 95% !important;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
