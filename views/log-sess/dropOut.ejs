@@ -4,10 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
-    <link rel="stylesheet" type="text/css" href="../../src/css/login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/src/css/login.css">
 </head>
-
+<header>
+    <div class="container d-flex mt-2">
+        <div class="p-2">
+            <a href="/index">
+                <div class='logo-wrapper'>
+                    <img class='img-fluid' src="/static/logo.png" width="200" height="70">
+                </div>
+            </a>
+        </div>
+        <div class="p-2">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="p-3 text-dark ml-5 mr-5" style="text-decoration: none" href="/product/main"><h2>상품</h2></a>
+                <a class="p-3 text-dark ml-3" style="text-decoration: none" href="/recipe/mainRecipe"><h2>레시피</h2></a>
+            </nav>
+        </div>
+        <div class="ml-auto p-4 mt-2">
+            <a class="btn btn-primary" id="logout" href="/auth/logout">로그아웃</a>
+            <a class="btn btn-primary" id="dropout" href="/auth/dropout">회원탈퇴</a>
+        </div>
+    </div>
+</header>
 <body>
+    <h2 class="text-center mt-5">정말로 탈퇴하시겠어요?ㅜ.ㅜ</h2>
+    <hr>
     <div class="logincenter">
         <div class="login">
             <p class="loginword">회원탈퇴</p>

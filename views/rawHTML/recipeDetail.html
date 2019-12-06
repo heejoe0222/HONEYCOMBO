@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <title>HoneyCombo</title>
     	<link rel="stylesheet"  href="recipeDetail.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 <body>
@@ -38,9 +38,11 @@
   </header>
   <main>
     <div class="container">
+        <!--recipeInfo-->
       <h3 class="text-center"><b>writer 님의 레시피</b></h3>
+      <!-- <h3 class="text-center"><b>내가 작성한 레시피</b></h3> -->
       <hr>
-
+        <!--thumnail-->
       <div class="row">
         <div class="col text-center mb-3">
               <img src="http://mblogthumb4.phinf.naver.net/MjAxNjExMDNfMTkz/MDAxNDc4MTQ0MjU4OTkx.kgF2p_QTGPvbsBfY-x-kaxNn3ngPvdpQ68sYh2fUGGQg.jaQ2vpHL_JOt6PF-BiwkO32uZaicNM_s92MkNAzv7_Ug.JPEG.zaza8574/PB027769.JPG?type=w800" alt="recipe_img" width="400" height="300"/>
@@ -51,7 +53,7 @@
       </div>
 
       <label class="col-sm-2 col-form-label" style="font-size:1.8rem">레시피 재료</label>
-
+        <!--products-->
       <div id="myCarousel" class="carousel slide p-2" data-ride="carousel" data-interval="false">
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item pb-3 active">
@@ -125,6 +127,7 @@
       </div>
       <hr>
 
+        <!--recipeRating-->
       <div class="row justify-content-start">
         <div class="col-2 ml-3">
           <span style="font-size:1.8rem">평점</span>
@@ -144,6 +147,11 @@
           <span style="font-size:1.8rem">점</span>
         </div>
 
+        <!-- 평가 아직 없는 경우 -->
+        <!-- <div class="col-4 align-self-center">
+          <span style="font-size:1.6rem">아직 평가가 없어요ㅜㅜ</span>
+        </div> -->
+
         <div class="col-1">
           <span style="font-size:1.8rem">가격 </span>
         </div>
@@ -156,18 +164,41 @@
         </div>
       </div>
       <hr>
+      <div class="row justify-content-start">
+        <div class="col-2 ml-3">
+          <span style="font-size:1.8rem">난이도</span>
+          <span class="ml-4" style="font-size:1.8rem">|</span>
+        </div>
+        <div class="col-4">
+          <span style="font-size:1.8rem"><b>중</b></span>
+        </div>
 
+        <div class="col-2 ">
+          <span style="font-size:1.8rem">소요시간 </span>
+        </div>
+        <div class="col-1">
+          <span style="font-size:1.8rem">|</span>
+        </div>
+        <div class="col-2">
+          <span id="time" style="font-size:1.8rem">3</span>
+          <span style="font-size:1.8rem">분</span>
+        </div>
+      </div>
+      <hr>
+
+        <!--SNS-sharing-->
       <div class="row text-left ">
         <div class="col-1 mx-3">
             <span style="font-size:1.8rem">공유</span>
         </div>
         <div class="col-2">
-          <img src="facebook.png" width=50 height=50>
-          <img class="ml-5" src="kakao.png" width=50 height=50>
+            <a href="#"><img src="facebook.png" width=50 height=50></a>
+            <a href="#"><img class="ml-5" src="kakao.png" width=50 height=50></a>
         </div>
       </div>
       <hr>
 
+        <!--mainContents-->
       <div class="recipe mt-5 p-5">
         <p id="recipe_content">
           마크 정식 만들어보기<br><br>
@@ -187,27 +218,79 @@
         </p>
       </div>
 
-      <h3 class="text-center mt-5"><b>댓글</b></h3>
-      <hr>
-      <div class="row comment-row">
-        <div class="col-1 ml-3">
-          <h4 id="user_id">USER1</h4>
+      <!--내 글인 경우에만 뜬다-->
+      <div class="text-right my-4">
+        <div class="button-group">
+          <button class="btn btn-primary mx-2" id="recipe_correct" href="#">수정</button>
+          <button class="btn btn-primary mx-2" id="recipe_delete" href="#">삭제</button>
         </div>
-        <h4 class="ml-3">|</h4>
-        <div class="col-8">
-          <h4 id="user_comment" class="ml-3">맛있음!!! 강.력.추.천</h4>
-        </div>
-        <h4 class="ml-3">|</h4>
-        <div class="col-2 ml-3 align-self-center">
-          <span class="fa fa-star checked" id="one"></span>
-          <span class="fa fa-star checked" id="two"></span>
-          <span class="fa fa-star checked" id="three"></span>
-          <span class="fa fa-star checked" id="four"></span>
-          <span class="fa fa-star-half checked" id="five"></span>
-        </div>
-        <hr>
+
       </div>
 
+      <div class="text-center my-3">
+          <a>
+              <button class="btn btn-outline-primary my-3" href="#" id="back_to_list">레시피 목록으로 돌아가기</button>
+          </a>
+      </div>
+
+      <!--comments-->
+      <h3 class="text-center mt-5"><b>댓글</b></h3>
+      <hr>
+      <div class="comment-container">
+        <!--유저 댓글 있는 경우 (항상 위에): 댓글 작성하기 없음 -->
+        <div class="comment-mine">
+          <div class="row ml-3">
+              <h4><b>내가 작성한 댓글</b></h4>
+          </div>
+          <div class="row ml-3">
+            <div class="col-7">
+              <h4 id="user_comment">맛있음!!! 강.력.추.천</h4>
+            </div>
+            <h4 class="ml-3">|</h4>
+            <div class="col-2 ml-3 align-self-center">
+              <span class="fa fa-star checked" id="one"></span>
+              <span class="fa fa-star checked" id="two"></span>
+              <span class="fa fa-star checked" id="three"></span>
+              <span class="fa fa-star checked" id="four"></span>
+              <span class="fa fa-star-half checked" id="five"></span>
+            </div>
+            <h4 class="ml-3">|</h4>
+             <div class="button-group ml-4">
+               <button class="btn btn-primary mx-2" id="comment_correct" href="#">수정</button>
+               <button class="btn btn-primary mx-2" id="comment_delete" href="#">삭제</button>
+             </div>
+          </div>
+          <hr>
+        </div>
+
+          <!--댓글 하나-->
+        <div class="row comment-row">
+          <div class="ml-5 mr-1" >
+              <h4 id="index">1</h4>
+          </div>
+          <h4 class="ml-3">|</h4>
+          <div class="col-1 ml-3">
+            <h4 id="user_id">USER1</h4>
+          </div>
+          <h4 class="ml-3">|</h4>
+          <div class="col-7">
+            <h4 id="my_comment" class="ml-3">맛있음!!! 강.력.추.천</h4>
+          </div>
+          <h4 class="ml-3">|</h4>
+          <div class="col-2 ml-3 align-self-center">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star-half checked"></span>
+          </div>
+          <hr>
+        </div>
+
+      </div>
+
+
+      <!--댓글 작성하기: 유저 댓글 없음 -->
       <form class="comment mt-4 text-center" action="#" method="post">
         <div class="form-group row align-items-center">
           <label class="col-1 col-form-label ml-4" for="cmt_input"><h4>작성</h4></label>
@@ -228,9 +311,6 @@
           <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
         </div>
       </form>
-
-
-
 
 
     </div>

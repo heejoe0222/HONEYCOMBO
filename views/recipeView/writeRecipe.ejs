@@ -1,215 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>HoneyCombo</title>
-    <link rel="stylesheet"  href="/recipeWrite.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/recipeWrite.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
-<header>
-    <div class="container d-flex">
-        <div class="p-2">
-            <a href="main">
-                <div class='logo-wrapper'>
-                    <img class='img-fluid' src="/static/logo.png" width="150" height="75">
-                </div>
-            </a>
-        </div>
-        <div class="p-2">
+
+    <header>
+        <div class="container d-flex mt-2">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="p-3 text-dark" href="/product/main"><h4>상품</h4></a>
-                <a class="p-3 text-dark" href="/recipe/mainRecipe"><h4>레시피</h4></a>
+                <div class="p-2">
+                    <a href="/index">
+                        <div class='logo-wrapper'>
+                            <img class='img' src="/static/logo.png" width="200" height="90">
+                        </div>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <ul>
+                        <li><a class="nav-a one text-dark ml-2 mr-5" href="/product/main" style="text-decoration:none">
+                                <h4>상품</h4>
+                            </a></li>
+                        <li><a class="nav-a two text-dark ml-3" href="/recipe/mainRecipe" style="text-decoration:none">
+                                <h4>레시피</h4>
+                            </a></li>
+                        <hr id="nav_hr">
+                    </ul>
+                </div>
+
+                <% if (isLoggedin) { %>
+                <div class="ml-auto p-4 mt-2">
+                    <h6 class="d-inline mt-1"><%= userID %>님 반가워요 :)</h6>&nbsp;
+                    <a class="btn btn-primary d-inline" id="logout" href="/auth/logout">로그아웃</a>
+                    <a class="btn btn-primary d-inline" id="dropout" href="/auth/dropout">회원탈퇴</a>
+                </div>
+                <% } %>
             </nav>
-        </div>main.css
-        recipeDetail.css
-        recipeWrite.css
-
-        <% if (logged) { %>
-            <div class="ml-auto p-4 mt-2">
-                <h5 class="d-inline mt-1"> <%= ID %>님 반가워요 :)</h5>&nbsp;
-                <a class="btn btn-primary" id="logout" href="/auth/logout">로그아웃</a>
-                <a class="btn btn-primary" id="dropout" href="/auth/dropout">회원탈퇴</a>
-            </div>
-        <% } %>
-    </div>
-</header>
-<main>
-    <div class="container">
-        <h4 class="text-center"><b>레시피 작성</b></h4>
-        <hr>
-
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 text-center mb-3 bg-light">
-                <div class="image-upload d-block mx-auto">
-                    <label for="file-input">
-                        <img src="upload_img.png" id="preview" alt="upload_btn" width="300" height="300"/>
-                    </label>
-                    <input id="file-input" type="file" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"/>
-                </div>
-                <label class="col-form-label" for="rcp_title">레시피를 대표하는 이미지를 등록해보세요!</label>
-                <!-- <p class="mt-auto">레시피를 대표하는 사진을 등록하려면 클릭!</p> -->
-            </div>
-            <div class="col-4"></div>
         </div>
-
-        <form class="recipe" action="recipe/writeRecipe" method="post">
-            <div class="form-group row mb-2 ">
-                <label class="col-sm-2 col-form-label" for="rcp_title">레시피 제목</label>
-                <input type="text" id="rcp_title" class="form-control col-sm-6" placeholder="원하는 레시피명을 입력해주세요!">
-            </div>
-            <hr>
-            <div class="row">
-                <label class="col-sm-2 col-form-label">레시피 재료 담기</label>
-                <div class="col-sm-6 mr-3 ml-auto form-group row">
-                    <label class="col-form-label col-3 ml-auto" for="prod_search">관련상품검색</label>
-                    <input type="text" id="prod_search" class="form-control col-sm-6" /> <!--submit 시 제출되지 x -->
-                    <button class="btn btn-primary col-2" id="search">검색하기</button> <!--검색함수 필요 -->
-                </div>
-            </div>
-
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item pb-3 active">
-                        <div class="row">
-                            <div class="col col1">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col2">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col4">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item pb-3">
-                        <div class="row">
-                            <div class="col col1">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col2">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col4">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">재료명</h4>
-                                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://kr-mb.theepochtimes.com/news/photo/first/201510/img_395847_1.gif">
-                                        <a href="#" id="add" class="btn btn-primary d-block">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-
-
-            <div class="text-right pb-3">
-                <span style="color:#FF9100" class="d-inline">Tip!</span>&nbsp;
-                <p class="d-inline">추가하고 싶은 재료의 button을 클릭하면 재료 바구니에 추가됩니다</p>
-            </div>
-
-
-            <div class="row prod-basket"> <!--여기도 내용 많아지면 carousel로...-->
-                <div class="card align-self-center ml-4">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">재료명</h4>
-                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                        <a href="#" id="delete" class="btn btn-primary d-block">Delete</a>
-                    </div>
-                </div>
-
-                <div class="card align-self-center ml-4">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">재료명</h4>
-                        <img class="rounded mx-auto d-block" width=150 height=150 src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F224E4A485932CC1303">
-                        <a href="#" id="delete" class="btn btn-primary d-block">Delete</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <textarea name="editor" id="editor" cols="30" wrap="hard" style="font-size: 1.7rem" placeholder=" 꿀조합러님의 레시피를 자유롭게 표현해보세요!"></textarea>
-            <input type="submit" id="write_submit" value="작성완료" class="btn btn-primary m-3">
-        </form>
-    </div>
-    <footer class="text-muted">
+    </header>
+    <main>
         <div class="container">
-            <hr class="featurette-divider">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>오픈SW플랫폼 Team17 이소망, 이채은, 최희조</p>
-        </div>
-    </footer>
-</main>
+            <h4 class="text-center"><b>레시피 작성</b></h4>
+            <hr id="hr-line">
 
-<!-- Bootstrap core JavaScript
+            <div class="row justify-content-center">
+                <div class="col-xs-4 text-center mb-3">
+                    <div class="image-upload d-block mx-auto">
+                        <label for="file-input">
+                            <img src="/static/upload_img.png" id="preview" alt="upload_btn" width="300" height="300" />
+                        </label>
+                        <input id="file-input" type="file" accept="image/*"
+                            onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])" />
+                    </div>
+                    <label class="col-xs-form-label" for="rcp_title">레시피를 대표하는 이미지의 URL을 등록하세요!</label>
+                    <!-- <p class="mt-auto">레시피를 대표하는 사진을 등록하려면 클릭!</p> -->
+                </div>
+            </div>
+
+            <form class="recipe" action="recipe/writeRecipe" method="post">
+                <div class="form-group row mb-2 ml-2">
+                    <label class="col-xs-2 col-xs-form-label" for="rcp_title">레시피 제목</label>
+                    <input type="text" id="rcp_title" class="form-control col-xs-6" placeholder="원하는 레시피명을 입력해주세요!">
+                </div>
+                <hr>
+
+                <div class="form-group d-block row my-5 ml-2">
+                    <label>레시피 재료 담기</label>
+                    <div class="form-group row my-3">
+                        <label class="ml-3 col-xs-1 align-self-center" for="prod_search">관련상품검색</label>
+                        <input type="text" id="prod_search" class="form-control col-xs-1 ml-5" />
+                        <!--submit 시 제출되지 x -->
+                        <button class="btn btn-primary d-inline col-xs-1" id="search">검색하기</button>
+                        <!--검색함수 필요 -->
+                    </div>
+                </div>
+                <% var itemsLen = items.length;
+                var showNum = 2;
+               var iter = (itemsLen/showNum | 0) -1;
+               var current = 0; 
+               var end = 0;%>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item pb-3 active">
+                            <div class="row">
+                                <% if(current+showNum > itemsLen){
+                                end = itemsLen;
+                            }else{
+                                end = current+showNum;
+                            } %>
+                                <% for(let i=current ; i<end ; i++){ 
+                                    var tempId = "item" + String(current); %>
+                                <div class="col-xs <%= i %> mx-4" id=<%= tempId %>>
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <% var imgSrc = '/images/' + items[i].imgPath %>
+                                            <h6 id=<%= tempId %> class="card-title"><%= items[i].itemName %></h6>
+                                            <img id=<%= tempId %> class="rounded mx-auto d-block" width=100 height=100 src=<%= imgSrc %>>
+                                            <input type="button" id="add" class="btn btn-primary d-block" name=<%= current %> value="add" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <% current += 1;
+                            } %>
+                            </div>
+                        </div>
+                        <% for(let j=0;j<iter;j++){ %>
+                        <div class="carousel-item pb-3">
+                            <div class="row">
+                                <% if(current+showNum > itemsLen){
+                                    end = itemsLen;
+                                }else{
+                                    end = current+showNum;
+                                } %>
+                                <% for(let i=current ; i<end ; i++){ 
+                                    var tempId = "item" + String(current); %>
+                                <div class="col-xs <%= i %> mx-4" id=<%= tempId %>>
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <% var imgSrc = '/images/' + items[i].imgPath %>
+                                            <h6 id=<%= tempId %> class="card-title"><%= items[i].itemName %></h6>
+                                            <img id=<%= tempId %> class="rounded mx-auto d-block" width=100 height=100 src=<%= imgSrc %>>
+                                            <input type="button" id="add" class="btn btn-primary d-block" name=<%= current %> value="add" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <% current += 1;
+                                        } %>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+
+                <div class="text-right pb-3">
+                    <span style="color:#FF9100" class="d-inline">Tip!</span>&nbsp;
+                    <p class="d-inline">추가하고 싶은 재료의 button을 클릭하면 재료 바구니에 추가됩니다</p>
+                </div>
+
+
+                <div id="myItemList" class="row prod-basket">
+                    <!--여기도 내용 많아지면 carousel로-->
+                </div>
+
+                <div class="form-group row ml-1 my-3">
+                    <label class="align-center">난이도 선택</label>
+                    <div class="btn-group btn-group-toggle col-xs-3 ml-5" data-toggle="buttons">
+                        <label class="btn btn-warning diff" id="high">
+                            <input type="radio"> 상
+                        </label>
+                        <label class="btn btn-warning diff" id="mid">
+                            <input type="radio"> 중
+                        </label>
+                        <label class="btn btn-warning diff" id="low">
+                            <input type="radio"> 하
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row ml-2 my-3 d-inline recipe-time">
+                    <label class="form-label" for="rcp_time">소요 시간</label>
+                    <input type="text" id="rcp_time" class="form-control d-inline" placeholder="분 단위로 입력해주세요">
+                    <!-- <label class="ml-3 d-inline  align-self-center">분</label> -->
+                </div>
+                <hr class="my-5">
+
+                <div class="form-group my-3 youtube">
+                    <label class="ml-3 align-self-center" for="prod_search">유튜브 URL 첨부: </label>
+                    <input type="text" id="youtube_url" class="form-control d-inline" />
+                </div>
+
+                <div class="recipe-step text-center">
+                    <div class="row align-center my-2" id="step1-row">
+                        <h6 class="step col-1">1.</h6>
+                        <input type="text" id="step1" class="form-control d-inline col-6"
+                            placeholder="조리 방법을 단계별로 입력해주세요">
+                    </div>
+                    <div class="row align-center my-2" id="step2-row">
+                        <h6 class="step col-1">2.</h6>
+                        <input type="text" id="step2" class="form-control d-inline col-6"
+                            placeholder="조리 방법을 단계별로 입력해주세요">
+                    </div>
+                    <div class="row align-center my-2" id="step3-row">
+                        <h6 class="step col-1">3.</h6>
+                        <input type="text" id="step3" class="form-control d-inline col-6"
+                            placeholder="조리 방법을 단계별로 입력해주세요">
+                    </div>
+                    <div class="row align-center my-2" id="step4-row">
+                        <h6 class="step col-1">4.</h6>
+                        <input type="text" id="step4" class="form-control d-inline col-6"
+                            placeholder="조리 방법을 단계별로 입력해주세요">
+                    </div>
+                    <div class="row align-center my-2" id="step5-row">
+                        <h6 class="step col-1">5.</h6>
+                        <input type="text" id="step5" class="form-control d-inline col-6"
+                            placeholder="조리 방법을 단계별로 입력해주세요">
+                    </div>
+                </div>
+
+                <input type="button" id="write_submit" value="작성완료" class="btn btn-primary m-3">
+            </form>
+        </div>
+        <footer class="text-muted">
+            <div class="container">
+                <hr class="featurette-divider">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+                <p>오픈SW플랫폼 Team17 이소망, 이채은, 최희조</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="module" src="../../../src/js/writeRecipe.js"></script>
+    <script type="text/javascript" src="../../../src/js/writeRecipe_delete.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
 </body>
+
 </html>

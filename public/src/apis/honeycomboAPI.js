@@ -17,6 +17,19 @@ async function sendRequest(url, method, data=undefined) {
     })
 }
 
+async function sendRequestNoResponse(url, method, data=undefined) {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url)
+
+      if (data) {
+          data = JSON.stringify(data)
+          xhr.setRequestHeader('Content-Type', "application/json")
+      } else {
+          data = null
+      }
+      xhr.send(data);
+}
+
 const honeycomboAPI = {
     dropoutUser: async (data) => {
         let url = '/auth/dropout/dropUser';
@@ -65,6 +78,18 @@ const honeycomboAPI = {
         let method = "POST"
         let result = await sendRequest(url, method, data);
         return result;
+    },
+
+    getTagSearch: async (url) => {
+        let method = "GET"
+        let result = await sendRequest(url, method);
+        return result;
+    },
+
+    postUserRecipe: async (data) => {
+        let url = "/recipe/writeRecipe/postRecipe"
+        let method = "POST"
+        await sendRequestNoResponse(url, method, data);
     }
   };
   export default honeycomboAPI;

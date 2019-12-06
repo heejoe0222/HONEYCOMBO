@@ -25,7 +25,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
 
     var firstQuery = function (callback) {
         var recipeQuery = 'select IMGFILENAME as imgPath, TITLE as title, TOTALPRICE as totalPrice, ' +
-            'TOTALTIME as totalTime, DIFFICULTY as difficulty, CONTENTS as recipeContents ' +
+            'TOTALTIME as totalTime, DIFFICULTY as difficulty, content1, content2, content3, content4, content5 ' + //CONTENTS as recipeContents ' +
             'from recipe where TITLE ="' + title + '";'
         var commentQuery = 'select comment.USERID as userId, COMMENTCONTENTS as commentContents, RATE as rate ' +
             'from comment inner join recipe on comment.RECIPETITLE=recipe.TITLE where TITLE="' + title + '";'
@@ -69,7 +69,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
                         } else {
                             console.log("err")
                         }
-                        console.log("detail data : ")
+                        console.log("detail view data : ")
                         console.log(recipeDetailData.items)
                         callback(null, recipeDetailData)
                     })
@@ -92,7 +92,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
     };
 
     // callback query result for ejs rendering
-    console.log("default page rendering callback");
+    console.log("detail recipe view, default page rendering callback");
     firstQuery(function (err, recipeDetailData) {
         if (err) console.log("Database error!")
         else {
@@ -130,7 +130,7 @@ router.post('/writeComment', function (req, res) {
                     writeComment.userId = id
                     writeComment.contents = commentWrite
                     writeComment.rate = usersRate;
-                    console.log('insert comment data')
+
                     // insert comment data and update rating!
                     var insertQuery = 'INSERT INTO COMMENT (RECIPETITLE, USERID, COMMENTCONTENTS, RATE) values (?, ?, ?, ?)'
                     var params = [recipeTitle, id, commentWrite, usersRate]
