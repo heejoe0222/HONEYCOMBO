@@ -24,7 +24,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
     var productList = []
 
     var firstQuery = function (callback) {
-        var recipeQuery = 'select IMGFILENAME as imgPath, TITLE as title, TOTALPRICE as totalPrice, ' +
+        var recipeQuery = 'select IMGFILENAME as imgPath, TITLE as title, USERID as writerID, TOTALPRICE as totalPrice, ' +
             'TOTALTIME as totalTime, DIFFICULTY as difficulty, content1, content2, content3, content4, content5 ' + //CONTENTS as recipeContents ' +
             'from recipe where TITLE ="' + title + '";'
         var commentQuery = 'select comment.USERID as userId, COMMENTCONTENTS as commentContents, RATE as rate ' +

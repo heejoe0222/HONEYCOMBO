@@ -143,6 +143,27 @@
 							]}
 						}
 					}
+			ㄴ path : "./product/main/sort/:PRICEORDER"
+				ㄴ method : GET
+				ㄴ status : fail
+					ㄴ  {
+						"productByPrice" : {
+							"result" : 0
+						}
+					}
+				ㄴ status : success
+					ㄴ {
+						"productByPrice" : {
+							"result" : 1
+							"items" : {[
+								"ITEMNAME" : ITEMNAME(string),
+								"ITEMPRICE" : ITEMPRICE(integer) - order by DESC | ASC,
+								"COMPANY" : COMPANY(string)
+								"REGISTRATIONDATE" : REGISTRATIONDATE(datetime)
+								"IMGFILENAME" : IMGFILENAME(string)
+							]}
+						}
+					}
 
 	ㄴ "recipe"
 		ㄴ recipeMain.js
@@ -196,6 +217,19 @@
 							]}
 						}
 					}
+			ㄴ path : "./recipe/mainRecipe/search/:TAG"
+				ㄴ method : GET
+					ㄴ {
+						"recipeList" : {
+							"items" : {[
+								"IMGFILENAME" : IMGFILENAME(string),
+								"TAGCONTENTS" : TAGCONTENTS(string),
+								"TITLE" : TITLE(string),
+								"USERID" : USERID(string),
+								"TOTALPRICE" : TOTALPRICE(integer)
+							]}
+						}
+					}
 
 
 		ㄴ detailRecipe.js
@@ -224,10 +258,15 @@
 									object : {
 										"imgPath" : IMGFILENAME(string),
 										"title" : TITLE(string),
+										"writerID" : USERID(string),
 										"totalPrice" : TOTALPRICE(integer),
 										"totalTime" : TOTALTIME(string) - ex:'30min',
 										"difficulty" : DIFFICULTY(string) - ex:'mid',
-										"recipeContents" : CONTENT(html tag to string)
+										"content1" : CONTENT1(string),
+										"content2" : CONTENT2(string),
+										"content3" : CONTENT3(string),
+										"content4" : CONTENT4(string),
+										"content5" : CONTENT5(string)
 									}
 								],
 								"comment" : [
@@ -281,7 +320,7 @@
 							"rate" : RATE(integer)
 						}
 					}
-			ㄴ path : "./recipe/detailRecipe/writeComment/editComment/:title"
+			ㄴ path : "./recipe/detailRecipe/editComment/:title"
 				ㄴ method : GET
 				ㄴ statusCode : 200
 					ㄴ {
@@ -295,7 +334,7 @@
 						"editComment" : ""
 					}
 
-			ㄴ path : "./recipe/detailRecipe/writeComment/updateComment/:title/:comment/:rate"
+			ㄴ path : "./recipe/detailRecipe/updateComment/:title/:comment/:rate"
 				ㄴ method : PUT
 				ㄴ statusCode : 200 - update affectedRows
 					ㄴ {
@@ -310,7 +349,7 @@
 						}
 					}
 
-			ㄴ path : "./recipe/detailRecipe/deleteComment"
+			ㄴ path : "./recipe/detailRecipe/deleteComment/:title"
 				ㄴ method : DELETE
 				ㄴ statusCode : 200
 					ㄴ {
@@ -321,6 +360,54 @@
 					}
 
 		ㄴ writeRecipe.js
+			ㄴ path : "./recipe/writeRecipe"
+				ㄴ method : GET
+				ㄴ  status : notLogin
+					ㄴ {
+						"writeRecipeData" : {
+							"isLoggedin" : false - redirect to login page
+						}
+					}
+				ㄴ status : login
+					ㄴ {
+						"writeRecipeData" : {
+							"isLoggedin" : true,
+							"userID" : id,
+							"items" : [
+								object : {
+								"itemName" : ITEMNAME(string),
+								"itemPrice" : ITEMPRICE(integer),
+								"imgPath" : IMGFILENAME(string)
+								},
+								object : {...}
+							]
+						}
+					}
+			ㄴ path : "./recipe/writeRecipe/postRecipe"
+				ㄴ method : POST
+				* issues : 에러메세지 및 상태코드는 입력되어 있으나 리스폰스해주진 않은 상태 - server
+				ㄴ statusCode : 403 - already in recipe title
+					ㄴ {
+						"writeRecipeContent" : {
+							"result" : 0,
+							"errMsg" : "이미 존재하는 레시피 제목입니다."
+						}
+					}
+				* description : didn't response to client, jsut redirect on server side
+				* issuses : call detailRecipe page using res.redirect from writeRecipe page, but cant rendering page
+				ㄴ statusCode : 200 - insert query success
+					ㄴ {
+						"writeRecipeContent" : {
+							"result" : 1
+							"title" : TITLE(string)
+						}
+					}
+				ㄴ statusCode : 204 - can't insert query!
+					ㄴ {
+						"writeRecipeContent" : {
+							"result" : 0
+						}
+					}
 	ㄴ dbConnects.js
 	ㄴ index.js
 
