@@ -59,8 +59,10 @@ insert into user values ('test', 'test123');
 insert into user values("test2", "test22");
 
 insert into product values 
-	('chocobar', 2100, 'CU', '2019-11-19', 'chocobar.jpeg'),
-	('conchip', 1200, 'GS', '2019-11-18', 'conchip.jpeg');
+	('chocobar', 2100, 'CU', '2019-11-19', 'chocobar.jpg'),
+	('conchip', 1200, 'GS', '2019-11-18', 'conchip.jpeg'),
+	('buldak', 1000, 'GS', '2019-12-09', 'buldak.jpg'),
+	('bananamilk', 1100, 'CU', '2019-12-09', 'bananamilk.jpg');
 
 insert into recipe values (
     'making-soup', 'test', 'makingSoup.jpg', '#chocobar#conchip', '30min', 4370, 'mid',
