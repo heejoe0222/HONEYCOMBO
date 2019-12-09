@@ -19,8 +19,8 @@
             </div>
             <div class="p-2">
                 <ul>
-                    <li><a class="nav-a one text-dark ml-2 mr-5" href="/product/main" style="text-decoration:none"><h4>상품</h4></a></li>
-                    <li><a class="nav-a two text-dark ml-3" href="/recipe/mainRecipe" style="text-decoration:none"><h4>레시피</h4></a></li>
+                    <li id="nav_list"><a class="nav-a one text-dark ml-2 mr-5" href="/product/main" style="text-decoration:none"><h4>상품</h4></a></li>
+                    <li id="nav_list"><a class="nav-a two text-dark ml-3" href="/recipe/mainRecipe" style="text-decoration:none"><h4>레시피</h4></a></li>
                     <hr id="nav_hr">
                 </ul>
             </div>
@@ -42,7 +42,7 @@
     </div>
 </header>
 <main>
-    <div class="container">
+    <div class="container showWrap">
         <!--상품 검색-->
         <div class="product-Search text-center">
             <div class="row justify-content-center mt-5 mb-3">
@@ -78,51 +78,28 @@
         <!--상품 나열-->
         <div class="product-content">
             <hr>
-            <% if(items != null && items.length > 0){ %>
-                <%console.log(items.length)%>
-                <% var repeatNum = Math.floor(items.length/3) %>
-                <% for ( var x = 0; x <= repeatNum; x++){ %> <!--row num-->
-                        <div class="row mt-5 justify-content-center">
-                            <% if(x == repeatNum){ %>  <!--마지막 줄일 경우-->
-                                <% var colNum = 0 %>
-                                <% switch(items.length%3){
-                                    case(0):
-                                        colNum = 2;
-                                        break;
-                                    case(1):
-                                        colNum = 0;
-                                        break;
-                                    case(2):
-                                        colNum = 1;
-                                        break;
-                               }%>
-                            <% }else{ %> <!--마지막 줄 아닐 경우-->
-                                <% var colNum = 2 %>
-                            <% } %>
-                            <% for ( var y = 0; y <= colNum; y++){ %> <!--col num-->
-                            <div class="col-md-4 mr-auto">
-                                <div class="item ml-5">
-                                    <div class="card mb-4 p-2">
-                                        <% var i = 3*x+y %>
-                                        <% var imgSrc = '/images/' + items[i].IMGFILENAME %>
-                                        <% console.log(imgSrc) %>
-                                        <img class="card-img-top" src="<%= imgSrc %>" style="height: 187px; width: 80%; display: block;">
-                                        <div class="card-body">
-                                            <small class="text-muted"><%= items[i].COMPANY %></small>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p class="card-text"><%= items[i].ITEMNAME %></p>
-                                                <p style="color:rgb(255, 145, 0)"><%= items[i].ITEMPRICE %>원</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <% } %>
-                        </div>
-                <% } %>
-            <% } else { %>
-                <p>상품 없음</p>
-            <% } %>
+            <div class="defaultResult mt-2">
+                <% if(items != null && items.length > 0){ %>
+                <ul>
+                    <% for ( var i = 0; i < items.length; i++){ %>
+                        <article id="item">
+                            <!--TODO : change source path and change IMGFILENAME to format contained file-->
+                            <% var imgSrc = '/images/' + items[i].IMGFILENAME %>
+                            <% console.log(imgSrc) %>
+                            <!--<h4><%= i %>번째 상품</h4>-->
+                            <img src=<%= imgSrc %>>
+                            <li id="itemCompany"><%= items[i].COMPANY %></li>
+                            <li id="itemName"><%= items[i].ITEMNAME %></li>
+                            <li id="itemPrice"><%= items[i].ITEMPRICE %>원</li>
+                            <!--<li><%= items[i].REGISTRATIONDATE %></li>-->
+                            <br>
+                        </article>
+                    <% } %>
+                    <% } else { %>
+                        <p>상품 없음</p>
+                    <% } %>
+                </ul>
+            </div>
             <!--TODO: 더보기 버튼: for 문 안에 넣어서 처리 해야-->
             <div class="row justify-content-center">
                 <a href="#" id="moreButton"><img src="/static/expand-button.png" width=50 height=50 alt="더보기"></a>
