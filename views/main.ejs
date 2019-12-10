@@ -26,7 +26,7 @@
 
             <div class="ml-auto p-4 mt-2">
                 <% if (isLoggedin)  { %>
-                    <h6 class="d-inline mt-1">userID님 반가워요 :)</h6>&nbsp;
+                    <h6 class="d-inline mt-1"><%= userID %>님 반가워요 :)</h6>&nbsp;
                     <a class="btn btn-primary" id="logout" href="/auth/logout">로그아웃</a>
                     <a class="btn btn-primary" id="dropout" href="/auth/dropout">회원탈퇴</a>
                 <% } %>

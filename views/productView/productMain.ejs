@@ -27,7 +27,7 @@
 
             <div class="ml-auto p-4 mt-2">
                 <% if (isLoggedin)  { %>
-                    <h6 class="d-inline mt-1">userID님 반가워요 :)</h6>&nbsp;
+                    <h6 class="d-inline mt-1"><%= userID %>님 반가워요 :)</h6>&nbsp;
                     <a class="btn btn-primary" id="logout" href="/auth/logout">로그아웃</a>
                     <a class="btn btn-primary" id="dropout" href="/auth/dropout">회원탈퇴</a>
                 <% } %>
@@ -51,9 +51,9 @@
             </div>
             <div class="row justify-content-center">
                 <form class="form-inline">
-                    <input type="text" name="itemName" class="form-control" placeholder="상품명을 입력하세요">
-                    <button class="btn btn-primary" id="searchButton">검색</button>
+                    <input type="text" id="itemSearchName" class="form-control" placeholder="상품명을 입력하세요">
                 </form>
+                <button class="btn btn-primary" id="searchButton" name="searchButton">검색</button>
             </div>
         </div>
         <!--상품 필터링-->
@@ -65,8 +65,8 @@
                 </div>
                 <div class="col-xs ml-5 align-self-center">
                     <span style="font-size:1.2rem">편의점별</span>
-                    <button class="btn btn-default ml-2" name="CU"><img src="/static/cu.png" width=60 height=40 alt="cu_logo"></button>
-                    <button class="btn btn-default" name="GS"><img src="/static/gs25.png" width=72 height=28 alt="cu_logo"></button>
+                    <button class="btn btn-default ml-2" name="CU"><img src="/static/cu.png" width=60 height=40 alt="cu_logo" name="CU"></button>
+                    <button class="btn btn-default" name="GS"><img src="/static/gs25.png" width=72 height=28 alt="gs_logo" name="GS"></button>
                 </div>
                 <div class="col-xs ml-5 align-self-center">
                     <span style="font-size:1.2rem">가격순</span>
