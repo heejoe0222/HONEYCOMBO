@@ -59,18 +59,20 @@ insert into user values ('test', 'test123');
 insert into user values("test2", "test22");
 
 insert into product values 
-	('chocobar', 2100, 'CU', '2019-11-19', 'chocobar.jpeg'),
-	('conchip', 1200, 'GS', '2019-11-18', 'conchip.jpeg');
-
-insert into recipe values 
-	('making-soup', 'test', 'makingSoup.jpg', '#chocobar#conchip', '30min', 4370, 'mid', '
-		<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>레시피</title> </head> <body> <h2>테스트 수프만들기 레시피 상세보기 입니다.</h2> </body> </html>'
-);
+	('chocobar', 2100, 'CU', '2019-11-19', 'chocobar.jpg'),
+	('conchip', 1200, 'GS', '2019-11-18', 'conchip.jpeg'),
+	('buldak', 1000, 'GS', '2019-12-09', 'buldak.jpg'),
+	('bananamilk', 1100, 'CU', '2019-12-09', 'bananamilk.jpg');
 
 insert into recipe values (
-	'boil-ramyeon', 'test', 'boilingRamyeon.jpg', '#conchip', '14min', 1350, 'low', '
-		<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>레시피</title> </head> <body> <h2>테스트 라면끓이기 레시피 상세보기 입니다.</h2> </body> </html>'
-);
+    'making-soup', 'test', 'makingSoup.jpg', '#chocobar#conchip', '30min', 4370, 'mid',
+	'레시피 1단계', '레시피 2단계','레시피 3단계','레시피 4단계','레시피 5단계','8CDFVcMrK4g'
+	);
+
+insert into recipe values (
+	'boil-ramyeon', 'test', 'boilingRamyeon.jpg', '#conchip', '14min', 1350, 'low',
+    '레시피 1단계', '레시피 2단계','레시피 3단계','레시피 4단계','레시피 5단계','GLj0MyVyhaU'
+   );
 
 insert into comment values ('making-soup', 'test', 'the greatest soup!', 4);
 

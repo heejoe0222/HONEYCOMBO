@@ -1,43 +1,41 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
 body{
-    font-family: 'NanumSquare', sans-serif !important;
+    font-family: 'NanumSquare', sans-serif;
 }
 
-.jumbotron{
-    background-image: url("../../images/static/jumbotron_img.png");
-    width: 80%;
-    /*height: 280px;*/
-    height: 200px;
-    background-repeat: no-repeat;
-    background-size: auto;
+.container {
+    width: 970px;
+    max-width: none !important;
+    font-family: 'NanumSquare', sans-serif;
     margin: 0 auto;
-    max-width: 1140px;
 }
 
-.container{
-    max-width: 1140px;
-    font-family: 'NanumSquare', sans-serif;
+.form-auth{
+    width: 100%;
+    max-width: 380px;
+    padding: 15px;
+    margin: 0 auto;
 }
 
-.logincenter {
-     font-family: 'NanumSquare', sans-serif;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     height: 300px;
-     width: 380px;
-     margin: -150px 0px 0px -200px;
- }
 
-.signupcenter {
-    font-family: 'NanumSquare', sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 300px;
-    width: 380px;
-    margin: -150px 0px 0px -200px;
+nav{
+    width: 70%;
+    margin: 0 auto;
+}
+
+ul li {
+    display: inline;
+    text-align: center;
+}
+
+.nav-a {
+    display: inline-block;
+    /* width: 50%;  */
+    padding: 0 0;
+    margin: 3rem 0 0 0;
+    text-decoration: none;
+    color: #333;
 }
 
 .loginword{
@@ -45,32 +43,31 @@ body{
 }
 
 .logininput{
-    height:35px;
-    width:350px;
+    line-height: 1;
+    width:100%;
     border: 1px solid #fdbf00;
-    background: #ffffff;
-    margin-bottom: 10px;
     border-radius:5px;
     padding: 8px;
     text-align: left;
-    font-size: 15px;
-    color: #cfcfcf
+    font-size: 1rem;
+    color: #111111;
 }
 
-.login{
-    text-align: center;
+input[type="password"] {
+    font-size: 1rem;
+    font: small-caption;
 }
+
 
 hr{
     width:500px;
-    height: 50px;
     text-align: center;
     color: #111111;
 }
 
 .loginBtn{
     border: none;
-    width:350px;
+    width:100%;
     padding: 8px;
     height:40px;
     font-size: 20px;
@@ -81,32 +78,21 @@ hr{
 }
 
 .dropoutBtn{
-
     border: none;
-    width:370px;
+    width:100%;
     padding: 8px;
-    height:50px;
-    font-size: 15px;
+    height:40px;
+    font-size: 20px;
+    font-weight: 600;
     background-color: #fdbf00;
     border-radius:5px;
-    font-weight: 600;
     margin: 3px;
-}
-
-.gomain{
-    text-align: right;
+    color: white;
 }
 
 .logResult{
-    font-size: 14px;
-    margin: 3px;
+    font-size: 1rem;
     text-align: left;
-    margin-top: 10px;
-}
-
-.mainbutton{
-    border: 0px;
-    font-size: 14px;
 }
 
 #signup, #dropout{

@@ -264,44 +264,6 @@
         <hr>
 
         <div class="comment-container">
-            <% var isCommentWritten = 0; %>
-            <%    for(var i = 0; i < items.comment.length; i++) { %>
-            <%       var commentWriter = items.comment[i].userId; %>
-            <%      if(isLoggedin && (commentWriter == userID)){%>
-            <%               isCommentWritten=1;%>
-            <%               var commentContents = items.comment[i].commentContents;%>
-            <%              var rate = items.comment[i].rate;%>
-            <%   }%>
-                <%      }%>
-
-            <!--유저 댓글 있는 경우 (항상 위에): 댓글 작성하기 없음 -->
-            <% if(isCommentWritten == 1) { %>
-            <div class="comment-mine">
-                <div class="row ml-3">
-                    <h4><b>내가 작성한 댓글</b></h4>
-                </div>
-                <div class="row ml-3">
-                    <div class="col-7">
-                        <h4 id="user_comment"><%=commentContents%>></h4>
-                    </div>
-                    <h4 class="ml-3">|</h4> <!--평점을 별로 바꾸는 거 처리해야-->
-                    <div class="col-2 ml-3 align-self-center ">
-                        <!--                    수정사항 : span 개수를 rate 만큼으로 for loop 처리-->
-                        <% for(var j = 0; j < rate; j++) { %>
-                            <!--평점<%= rate %>을 별로 바꾸는 거 처리해야-->
-                            <span class="fa fa-star checked"></span>
-                        <%}%>
-                    </div>
-                    <h4 class="ml-3">|</h4>
-                    <div class="button-group ml-4">
-<!--                        수정 버튼 삭제-->
-<!--                        <button class="btn btn-primary mx-2" id="comment_correct" href="#">수정</button>-->
-                        <button class="btn btn-primary mx-2" id="comment_delete" href="#">삭제</button>
-                    </div>
-                </div>
-                <hr>
-            </div>
-            <%}%>
 
             <% for(var i = 0; i < items.comment.length; i++) { %>
                 <% var commentIdx = String(i+1) %>

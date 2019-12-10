@@ -4,16 +4,6 @@ body{
     font-family: 'NanumSquare', sans-serif;
 }
 
-#nav_list{
-    display: inline;
-    text-align: center;
-}
-
-ul{
-    list-style-type: none;
-}
-
-
 
 .container {
     width: 970px;
@@ -30,6 +20,11 @@ ul{
 nav{
     width: 70%;
     margin: 0 auto;
+}
+
+ul li {
+    display: inline;
+    text-align: center;
 }
 
 .nav-a {
@@ -58,12 +53,12 @@ nav{
 .product-Search,.product-content {
     width:70%;
     margin: 0 auto;
-    height: auto;
 }
 .product-sort{
     width:50%;
     margin: 0 auto;
 }
+
 
 hr{
     width:100%;
@@ -78,7 +73,6 @@ hr{
     font-family: 'NanumSquare', sans-serif;
     margin-bottom: 2rem;
 }
-
 .card{
     border:none !important;
     width: 250px;
@@ -86,24 +80,6 @@ hr{
 }
 .card-img-top{
     margin: 0 auto;
-}
-
-.defaultResult{
-    clear:both;
-    margin: 20px;
-    height: 700px;
-}
-
-article>img{
-    width:250px !important;
-    height:250px !important;
-}
-
-
-#item{
-    margin-left: 50px;
-    margin-top : 30px;
-    float: left;
 }
 
 #itemCompany{
