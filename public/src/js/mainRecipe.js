@@ -26,7 +26,7 @@ async function fn(recipeList, showResult, comment) {
                         <li id="recipeTitle">'+tempTitle+'</li>\
                         <li id="recipePrice">'+recipeList.items[i].TOTALPRICE+'원</li>\
                         <li id="recipeItem"><a style="font-size: 0.9rem;">필요한 재료:</a>\
-                            '+subItemList.join('|').slice(1,)+'\
+                            '+subItemList.join('| ').slice(1,)+'\
                         </li>\
                     </article>';
         }
@@ -47,7 +47,7 @@ document.querySelector('.showWrap').addEventListener('click', async function (e)
     if (target.tagName !== "BUTTON") return;
 
     switch (type) {
-        case "recipePriceSearch":
+        case "recipePriceSearch row":
             // all elements select in form tag by name - maxPrice, minPrice
             let inputs = [].slice.call(document.querySelector("form").elements);
             data = inputs.reduce(function (pre, next) {
