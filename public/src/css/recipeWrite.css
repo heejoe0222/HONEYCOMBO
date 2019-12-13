@@ -8,10 +8,11 @@ body{
   width: 970px;
   max-width: none !important;
   font-family: 'NanumSquare', sans-serif;
+  margin: 0 auto;
 }
 
 .main{
-  width:70%;
+  width:65%;
   margin: 0 auto;
 }
 
@@ -36,8 +37,8 @@ ul li {
   color: #333;
 }
 
-.form, .recipe, .youtube, .recipe-step, .recipe-time{
-  width:70%;
+.form, .recipe, .recipe-time{
+  width:65%;
   margin: 0 auto;
 }
 
@@ -53,34 +54,51 @@ ul li {
   width: 20%;
 }
 
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: orange !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(255,199,13,.25) !important;
+}
+
 .prod-basket{
   width:100%;
   height: auto;
-  border: 1px ridge;
-  border-color: #eeeeee;
-  padding: 1rem 0;
-  margin: 3rem 0 50px 0  !important;
+  border: 1.5px;
+  border-color: #fafafa;
+  padding: 1rem 1rem 2rem 1rem;
+  margin: 3rem 0 3rem 0  !important;
+  background-color: #fafafa;
 }
 
 .card{
-  width:180px;
-  height:200px;
+  width:150px;
+  height:auto;
+}
+
+.card-title{
+    margin-bottom: 0.4rem !important;
+}
+.card-body{
+    padding: 0.9rem !important;
 }
 
 .carousel-control-next, .carousel-control-prev{
   width: 5% !important;
 }
-
+.carousel-inner{
+  margin: auto;
+  width: 95% !important;
+}
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   width: 0;
   height: 0;
-  outline: black;
   background-image: none;
 }
 
-.carousel-control-next-icon:after{
-
+.carousel-control-next-icon:after {
   content: '>';
   font-size: 55px;
   color: #FDBF00;
@@ -101,32 +119,30 @@ ul li {
 }
 
 .diff{
-  width: 100px;
+  width: 50px;
   height: 40px;
   color: white;
 }
 
-
 hr{
-  width:100%;
+  width:105%;
   height: 50px;
   text-align: center;
   color: #111111;
 }
 
-textarea{
-  width: 70%;
-  height: 500px;
+textarea.form-control{
+  width: 100%;
+  line-height: 2 !important;
   font-family: 'NanumSquare', sans-serif;
   padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 footer {
   width:70%;
   padding-top: 3rem;
   padding-bottom: 3rem;
+  margin: 0 auto;
 }
 
 footer p {
@@ -154,20 +170,31 @@ footer p {
 #search{
   background-color: #FF641A;
   border: none;
+  font-size: 0.8rem;
 }
 #prod_search{
-  width:30%;
+  width:15%;
 }
+#rcp_time{
+  width:25%;
+}
+#youtube_url{
+  width: 80%;
+}
+/* #step1, #step2, #step3, #step4, #step5{
+  width: 80%;
+} */
 #add{
-  background-color: #FFC80D;
+  background-color: #F57C20;
   border: none;
-  width: 130px;
+  width: 100px;
   height: 30px;
 }
 
 #delete{
-  background-color: #F57C20;
   border: none;
+  padding-left: 1rem;
+  margin-left: 0.2rem;
 }
 
 #hr-line{
