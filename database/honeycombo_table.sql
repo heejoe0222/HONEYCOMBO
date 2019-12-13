@@ -77,3 +77,7 @@ insert into recipe values (
 insert into comment values ('making-soup', 'test', 'the greatest soup!', 4);
 
 insert into comment values("making-soup", "test2", "Amazing!", 5);
+
+insert into product values
+    ('pocket-cheeze', 1200, 'GS', '2019-12-14', 'pocket-cheeze.jpg'),
+	('sinramyeoun-black', 1600, 'GS', '2019-12-14', 'sinramyeoun-black.jpg');

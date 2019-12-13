@@ -76,20 +76,20 @@
                     </div>
                 </div>
                 <% var itemsLen = items.length;
-                var showNum = 2;
-               var iter = (itemsLen/showNum | 0) -1;
-               var current = 0; 
-               var end = 0;%>
+                   var showNum = 5;
+                   var iter = Math.ceil(items.length/showNum) -1;
+                   var current = 0;
+                   var end = 0; %>
                 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item pb-3 active">
                             <div class="row justify-content-around">
-                                <% if(current+showNum > itemsLen){
+                                <% if(showNum > itemsLen){
                                 end = itemsLen;
                             }else{
-                                end = current+showNum;
+                                end = showNum;
                             } %>
-                                <% for(let i=current ; i<end ; i++){ 
+                                <% for(let i=current ; i<end ; i++, current++){
                                     var tempId = "item" + String(current); %>
                                 <div class="col-xs <%= i %> mx-2" id=<%= tempId %>>
                                     <div class="card align-self-center">
@@ -101,19 +101,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <% current += 1;
-                            } %>
+                                <% } %>
                             </div>
                         </div>
                         <% for(let j=0;j<iter;j++){ %>
                         <div class="carousel-item pb-3">
                             <div class="row justify-content-around">
-                                <% if(current+showNum > itemsLen){
+                                <% if(itemsLen - current >= showNum){ //아직 다음 줄 존재하는 경우
+                                    end = current + showNum;
+                                }else{ //이번이 마지막 줄인 경우
                                     end = itemsLen;
-                                }else{
-                                    end = current+showNum;
                                 } %>
-                                <% for(let i=current ; i<end ; i++){ 
+                                <% for(let i=current ; i<end ; i++, current++){
                                     var tempId = "item" + String(current); %>
                                 <div class="col-xs <%= i %> mx-4" id=<%= tempId %>>
                                     <div class="card">
@@ -125,8 +124,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <% current += 1;
-                                        } %>
+                                <% } %>
                             </div>
                         </div>
                         <% } %>
@@ -155,7 +153,8 @@
 
                 <div class="prod-basket">
                     <span class="row mx-3 my-3 text-left align-center"><b>담은 재료</b></span>
-                    <div class="row mx-1" id="myItemList">
+                    <!--TODO: 같은 아이템이 계속 추가되는 문제 해결해야-->
+                    <div class="row mx-2 justify-content-start" id="myItemList">
                     </div>
                 </div>
 

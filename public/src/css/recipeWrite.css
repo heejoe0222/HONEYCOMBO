@@ -78,7 +78,9 @@ ul li {
 }
 
 .card-title{
-    margin-bottom: 0.4rem !important;
+    margin-bottom: 0.2rem !important;
+    height: 32px;
+    font-family: sans-serif;
 }
 .card-body{
     padding: 0.9rem !important;
@@ -116,6 +118,10 @@ ul li {
 
 .yellow{
   color: #FFDA2D;
+}
+
+#myItemList{
+  margin: 0 auto;
 }
 
 .diff{
