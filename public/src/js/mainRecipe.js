@@ -16,21 +16,21 @@ async function fn(recipeList, showResult, comment) {
             var actionUrl = "/recipe/detailRecipe/viewDetail/" + tempTitle;
 
 
-            articles += '<article class="recipe">\
+            articles += ' <article class="recipe mx-4 my-5">\
                         <li class="seeDetail">\
                             <form action="'+actionUrl+'" method="get">\
                                 <input id="recipeimage" type="image" src="'+imgSrc+'" alt="Submit Form" />\
                             </form>\
                         </li>\
-                        <li id="recipeUser">'+recipeList.items[i].USERID+'님의 레시피</li>\
+                        <li id="recipeUser"><span>'+recipeList.items[i].USERID+'</span> 님의 레시피</li>\
                         <li id="recipeTitle">'+tempTitle+'</li>\
                         <li id="recipePrice">'+recipeList.items[i].TOTALPRICE+'원</li>\
-                        <li id="recipeItem"><a>필요한 재료:</a>\
+                        <li id="recipeItem"><a style="font-size: 0.9rem;">필요한 재료:</a>\
                             '+subItemList.join('|').slice(1,)+'\
                         </li>\
                     </article>';
         }
-        showResult.innerHTML = '<div class="existRecipe">총 <a>'+length+'</a>개의 레시피 </div><ul>' + articles +'</ul>';
+        showResult.innerHTML = '<div class="existRecipe mt-5">총 <span>'+length+'</span>개의 레시피 </div><ul>' + articles +'</ul>';
     } else {
         showResult.innerHTML = comment;
     }

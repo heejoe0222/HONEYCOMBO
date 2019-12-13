@@ -4,6 +4,16 @@ body{
     font-family: 'NanumSquare', sans-serif;
 }
 
+
+#nav_list{
+    display: inline;
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
 .container {
     width: 970px;
     max-width: none !important;
@@ -14,16 +24,6 @@ body{
 .main{
     width:65%;
     margin: 0 auto;
-}
-
-
-#nav_list{
-    display: inline;
-    text-align: center;
-}
-
-ul{
-    list-style-type: none;
 }
 
 nav{
@@ -56,6 +56,13 @@ nav{
 .recipe-Search,.recipe-content {
     width:70%;
     margin: 0 auto;
+}
+
+hr{
+    width:100%;
+    height: 50px;
+    text-align: center;
+    color: #111111;
 }
 
 .small-title{
@@ -99,6 +106,7 @@ input{
     margin-right: 10px;
     text-align: right;
 }
+
 
 .form-control:focus {
     color: #495057;
@@ -162,10 +170,11 @@ input[name="minPrice"], input[name="maxPrice"] {
 
 /* recipe-content */
 .existRecipe{
-    font-size: 14px;
+    font-size: 1.2rem;
+    margin-left: 70px!important;
 }
 .existRecipe span{
-    font-size: 14px;
+    font-size: 1.2rem;
     color: rgb(255, 145, 0) !important;
 }
 
@@ -210,12 +219,19 @@ input[name="minPrice"], input[name="maxPrice"] {
     text-align: right;
 }
 #recipeUser{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-top: 10px;
+}
+#recipeUser>span{
+    color: #FF9100;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
 }
 #recipeItem{
     font-size: 14px;
     margin-top:8px;
+    font-family: sans-serif;
 }
 #recipeItem a{
     color: #888484;
@@ -231,7 +247,7 @@ footer {
 
 footer p {
     margin-bottom: .25rem;
-    text-align: left;
+    font-size: 1rem;
 }
 
 #signup, #dropout{
