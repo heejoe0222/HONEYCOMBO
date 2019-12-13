@@ -104,6 +104,14 @@ input{
     border-radius:10px 0 0 10px!important;
 }
 
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #FFC80D !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255,199,13,.25) !important;
+}
+
 #searchButton{
     width: 50px;
     height: 100%;

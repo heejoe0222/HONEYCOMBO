@@ -79,19 +79,21 @@ hr{
     margin-bottom: 2rem;
 }
 
-.card{
-    border:none !important;
-    width: 250px;
-    height: 270px;
-}
-.card-img-top{
-    margin: 0 auto;
+/*TODO: ITEM 개수에 따라서 높이 조절해야*/
+@media (min-width:1850px) { /*한 줄에 4개 들어가는 경우*/
+    .defaultResult{
+        clear:both;
+        margin: 20px;
+        height: 400px; /* item개수/4*350 + 50 */
+    }
 }
 
-.defaultResult{
-    clear:both;
-    margin: 20px;
-    height: 700px;
+@media (max-width:1850px) { /*한 줄에 3개 들어가는 경우*/
+    .defaultResult{
+        clear:both;
+        margin: 20px;
+        height: 750px; /* item개수/3*350 + 50 */
+    }
 }
 
 article>img{
@@ -126,6 +128,14 @@ article>img{
 input{
     padding: 10px;
     border-radius:10px 0 0 10px!important;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #FFC80D !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255,199,13,.25) !important;
 }
 
 #searchButton{
