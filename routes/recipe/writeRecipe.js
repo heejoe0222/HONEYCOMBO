@@ -61,7 +61,9 @@ router.post('/postRecipe', function(req, res) {
 
     var difficulty = req.body.difficulty
     var totalTime = req.body.totaltime
-    var videoUrl = req.body.videoUrl
+    // get youtube id using regular expression
+    var youtubeRegexp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
+    var videoUrl = req.body.videoUrl.match(youtubeRegexp)[1]
     var imgUrl = req.body.imgUrl
 
     var contentList = {}
