@@ -25,7 +25,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
 
     var firstQuery = function (callback) {
         var recipeQuery = 'select IMGFILENAME as imgPath, TITLE as title, USERID as writerID, TOTALPRICE as totalPrice, ' +
-            'TOTALTIME as totalTime, DIFFICULTY as difficulty, content1, content2, content3, content4, content5 ' + //CONTENTS as recipeContents ' +
+            'TOTALTIME as totalTime, DIFFICULTY as difficulty, VIDEOURL as videoUrl, content1, content2, content3, content4, content5 ' + //CONTENTS as recipeContents ' +
             'from recipe where TITLE ="' + title + '";'
         var commentQuery = 'select comment.USERID as userId, COMMENTCONTENTS as commentContents, RATE as rate ' +
             'from comment inner join recipe on comment.RECIPETITLE=recipe.TITLE where TITLE="' + title + '";'
@@ -70,7 +70,7 @@ router.get('/viewDetail/:TITLE', function (req, res) {
                             console.log("err")
                         }
                         console.log("detail view data : ")
-                        console.log(recipeDetailData.items)
+                        // console.log(recipeDetailData.items)
                         callback(null, recipeDetailData)
                     })
                 }
