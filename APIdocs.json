@@ -262,6 +262,7 @@
 										"totalPrice" : TOTALPRICE(integer),
 										"totalTime" : TOTALTIME(string) - ex:'30min',
 										"difficulty" : DIFFICULTY(string) - ex:'mid',
+										"videoUrl" : VIDEOURL(string) - ex:'TOydfDd94SQ',
 										"content1" : CONTENT1(string),
 										"content2" : CONTENT2(string),
 										"content3" : CONTENT3(string),
