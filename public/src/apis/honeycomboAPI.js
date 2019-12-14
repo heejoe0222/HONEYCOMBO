@@ -89,7 +89,9 @@ const honeycomboAPI = {
     postUserRecipe: async (data) => {
         let url = "/recipe/writeRecipe/postRecipe"
         let method = "POST"
-        await sendRequestNoResponse(url, method, data);
+        await sendRequest(url, method, data);
+        window.location.href = '/recipe/detailRecipe/viewDetail/' + data.title;
+        // await sendRequestNoResponse(url, method, data);
     }
   };
   export default honeycomboAPI;

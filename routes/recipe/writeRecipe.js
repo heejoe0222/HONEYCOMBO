@@ -125,7 +125,8 @@ router.post('/postRecipe', function(req, res) {
                             else {
                                 var redirectPath = '/recipe/detailRecipe/viewDetail/' + title
                                 console.log("redirect page to " + redirectPath)
-                                res.redirect(redirectPath)
+                                res.json(writeRecipeContent)
+                                // res.redirect(redirectPath)
                             }
                         })
                     })
