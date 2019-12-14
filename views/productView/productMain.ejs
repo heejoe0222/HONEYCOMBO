@@ -84,7 +84,7 @@
                     <% for ( var i = 0; i < items.length; i++){ %>
                         <article id="item" class="mx-4 my-5">
                             <!--TODO : change source path and change IMGFILENAME to format contained file-->
-                            <% var imgSrc = '/images/' + items[i].IMGFILENAME %>
+                            <% var imgSrc = items[i].IMGFILENAME %>
                             <% console.log(imgSrc) %>
                             <!--<h4><%= i %>번째 상품</h4>-->
                             <img src=<%= imgSrc %>>

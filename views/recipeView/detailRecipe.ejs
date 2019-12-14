@@ -50,12 +50,12 @@
 </header>
 <main>
     <div class="container recipeInfo" id="">
-        <% var imgSrc = '/images/' + items.recipeData[0].imgPath %>
+        <% var imgSrc = items.recipeData[0].imgPath %>
         <% var recipeTitle = items.recipeData[0].title %>
         <% var recipeWriter = items.recipeData[0].writerID %>
 
         <!--recipeWriter-->
-        <% if(isLoggedin && (userId == userID)) { %>
+        <% if(isLoggedin && (userID == recipeWriter)) { %>
             <h4 class="text-center"><b>내가 작성한 레시피</b></h4>
         <%} else{%>
             <h4 class="text-center"><b>"<%= recipeWriter %> 님의 레시피</b></h4> <!--writer 변수 추가해야-->
