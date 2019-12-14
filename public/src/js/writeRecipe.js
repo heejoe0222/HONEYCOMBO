@@ -13,11 +13,11 @@ function addClick(e) {
 
     let currentItemHTML = document.querySelector("#myItemList").innerHTML;
     document.querySelector("#myItemList").innerHTML = currentItemHTML +
-        '<div class="card align-self-center ml-4">\
+        '<div class="card text-align align-self-center mx-2 my-2">\
             <div class="card-body text-center">\
-                <input type="button" name='+itemId+' id="delete" onclick="delClick(name)" class="btn btn-primary d-block" value="x" />\
-                <h6 class="card-title" id="rcp_product">' + title + '</h6>\
-                <img class="rounded mx-auto d-block" width=100 height=100 src=' + imgUrl + '>\
+                <input type="button" name='+itemId+' class="row justify-content-start" style=" background: url(../images/static/delete-button.png) no-repeat; background-size: 78% 78%;" id="delete" onclick="delClick(name)" >\
+                <h6 class="card-title mb-1 mx-auto" id="rcp_product">' + title + '</h6>\
+                <img class="rounded mx-auto d-block" width=110 height=110 src=' + imgUrl + '>\
             </div>\
         </div>';
 }

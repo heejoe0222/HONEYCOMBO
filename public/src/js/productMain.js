@@ -7,7 +7,7 @@ async function fn(showResult, productList, result) {
         var article = '';
         for (var i = 0; i < productList.items.length; i++) {
             var imgSrc = '/images/' + productList.items[i].IMGFILENAME;
-            article += '<article id="item"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article>';
+            article += '<article id="item" class="mx-4 my-5"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article>';
         }
         showResult.innerHTML = '<ul>'+article+'</ul>';
     } else {
@@ -18,33 +18,35 @@ async function fn(showResult, productList, result) {
 document.querySelector('.showWrap').addEventListener('click', async function (e) {
     let url;
     const target = e.target;
-    const li = target.closest('LI');
     const showResult = document.querySelector(".defaultResult");
-    const type = li.className;
     let productList = undefined;
 
-    if (target.tagName !== "BUTTON") return;
+    const type = target.name;
 
     switch (type) {
-        case "productSearch":
-            url = "/product/main/search/" + li.getElementsByTagName("input")[0].value;
+        case "searchButton":
+            url = "/product/main/search/" + document.getElementById("itemSearchName").value;
+            console.log(url);
             productList = await honeycomboAPI.getProduct(url);
             console.log(productList);
             await fn(showResult, productList, "일치하는 상품 이름 없음");
             break;
 
-        case "companySort":
-            var companyName = target.name
+        case "GS":
+        case "CU":
+            var companyName = type
             url = "/product/main/classify/" + companyName
             productList = await honeycomboAPI.getProduct(url);
+            console.log(productList);
             await fn(showResult, productList, "회사별 상품 결과 없음");
             break;
         
-        case "priceSort":
-            var price = target.name;
+        case "high":
+        case "low":
+            var price = type;
             url = "/product/main/sort/" + price;
             productList = await honeycomboAPI.getProduct(url);
-            console.log
+            console.log(productList);
             await fn(showResult, productList, "회사별 상품 결과 없음");
             break;
     }
