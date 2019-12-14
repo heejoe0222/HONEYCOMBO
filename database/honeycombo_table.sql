@@ -77,3 +77,12 @@ insert into recipe values (
 insert into comment values ('making-soup', 'test', 'the greatest soup!', 4);
 
 insert into comment values("making-soup", "test2", "Amazing!", 5);
+
+insert into product values
+    ('pocket-cheeze', 1200, 'GS', '2019-12-14', 'pocket-cheeze.jpg'),
+	('sinramyeoun-black', 1600, 'GS', '2019-12-14', 'sinramyeoun-black.jpg');
+
+insert into recipe values (
+	'고기요리', 'test2', 'cooking_beef.jpg', '#buldak#pocket-cheeze', '20min', 5600, 'high',
+    '재료를 준비한다', '재료를 다듬는다','재료를 모은다','재료를 조리한다','요리를 세팅한다','cyS8ycmGs1U'
+   );

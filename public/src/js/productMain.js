@@ -7,7 +7,7 @@ async function fn(showResult, productList, result) {
         var article = '';
         for (var i = 0; i < productList.items.length; i++) {
             var imgSrc = '/images/' + productList.items[i].IMGFILENAME;
-            article += '<article id="item"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article>';
+            article += '<article id="item" class="mx-4 my-5"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article>';
         }
         showResult.innerHTML = '<ul>'+article+'</ul>';
     } else {
