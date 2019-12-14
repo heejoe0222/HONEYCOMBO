@@ -10,6 +10,7 @@ def getCatePage() :
 	baseUrl = 'http://gs25.gsretail.com/gscvs/ko/products/youus-different-service#;'
 	prodJson = []
 
+	# install chromedriver! and change temp webdriver path to your local path
 	driver = webdriver.Chrome('C:/Users/thakd/Downloads/chromedriver')
 	driver.get(baseUrl)
 	
