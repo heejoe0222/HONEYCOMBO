@@ -79,7 +79,7 @@
             <!--products-->
             <div class="recipe-basket">
                 <div class="row mx-5">
-                    <%var products = items.usedProduct %>
+                    <% var products = items.usedProduct %>
                     <% for (var i=0; i<products.length;i++) {%>
                         <div class="card text-align align-self-center mx-2">
                             <div class="card-body text-center">
@@ -206,7 +206,7 @@
                     </p>
                 </div>
 
-                <% if (items.recipeData[0].content2 != null){ %>
+                <% if (items.recipeData[0].content2 != ''){ %>
                     <div class="row mx-3 my-2">
                         <img src="/static/two.png" class="number-info" alt="two">
                         <p class="recipe-content ml-5 mt-1" id="step2_content">
@@ -215,7 +215,7 @@
                     </div>
                 <% } %>
 
-                <% if (items.recipeData[0].content3 != null){ %>
+                <% if (items.recipeData[0].content3 != ''){ %>
                     <div class="row mx-3 my-2">
                         <img src="/static/three.png" class="number-info" alt="three">
                         <p class="recipe-content ml-5 mt-1" id="step3_content">
@@ -224,7 +224,7 @@
                     </div>
                 <% } %>
 
-                <% if (items.recipeData[0].content4 != null){ %>
+                <% if (items.recipeData[0].content4 != ''){ %>
                     <div class="row mx-3 my-2">
                         <img src="/static/four.png" class="number-info" alt="four">
                         <p class="recipe-content ml-5 mt-1" id="step4_content">
@@ -233,7 +233,7 @@
                     </div>
                 <% } %>
 
-                <% if (items.recipeData[0].content5 != null){ %>
+                <% if (items.recipeData[0].content5 != ''){ %>
                     <div class="row mx-3 my-2">
                         <img src="/static/five.png" class="number-info" alt="five">
                         <p class="recipe-content ml-5 mt-1" id="step5_content">

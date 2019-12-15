@@ -104,3 +104,24 @@ hr{
     background-color: #FFDA2D;
     border: none;
 }
+
+footer {
+    width:70%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin: 0 auto;
+}
+
+footer hr{
+    width: 100%;
+    text-align: center;
+    color: #111111;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
+
+.featurette-divider {
+    margin-top: 5rem; /* Space out the Bootstrap <hr> more */
+}
