@@ -27,7 +27,7 @@ ul{
 }
 
 nav{
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -60,7 +60,7 @@ nav{
     height: auto;
 }
 .product-sort{
-    width:50%;
+    width:70%;
     margin: 0 auto;
 }
 
@@ -83,7 +83,7 @@ hr{
     .defaultResult{
         clear:both;
         margin: 20px;
-        height: 750px; /* (item개수/4+1)*350 + 50 */
+        height: 700px; /* (item개수/4+1)*350 + 50 */
     }
 }
 
@@ -91,7 +91,7 @@ hr{
     .defaultResult{
         clear:both;
         margin: 20px;
-        height: 750px; /* (item개수/3+1)*350 + 50 */
+        height: 700px; /* (item개수/3+1)*350 + 50 */
     }
 }
 
@@ -136,7 +136,7 @@ input{
 }
 
 #searchButton{
-    width: 50px;
+    width: 3.2rem;
     height: 100%;
     border: 0px;
     background: #fdbf00;
