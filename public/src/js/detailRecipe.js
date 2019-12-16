@@ -21,6 +21,7 @@ document.querySelector('.commetList').addEventListener('click', async function (
     let url, method, data;
     const target = e.target;
     const type = target.name;
+    const title = document.querySelector(".recipeInfo").id;
     let result = undefined;
 
     // if (target.tagName !== "BUTTON") return;
@@ -30,7 +31,11 @@ document.querySelector('.commetList').addEventListener('click', async function (
             // all elements select in form tag by name - maxPrice, minPrice
             let inputs = [].slice.call(document.querySelector("form").elements);
             data = inputs.reduce(function (pre, next) {
-                pre[next.name] = next.value;
+                console.log(next.checked)
+                var name = next.name
+                if((name === "usersRate" && next.checked) || name != "usersRate") {
+                    pre[name] = next.value
+                }
                 return pre;
             }, {});
             console.log(data)
