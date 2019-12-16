@@ -27,7 +27,7 @@ ul{
 }
 
 nav{
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -60,7 +60,7 @@ nav{
     height: auto;
 }
 .product-sort{
-    width:50%;
+    width:70%;
     margin: 0 auto;
 }
 
@@ -78,31 +78,33 @@ hr{
     margin-bottom: 2rem;
 }
 
-/*TODO: ITEM 개수에 따라서 높이 조절해야*/
+/*일단 footer 빼고 높이 조절 안 하는 방향으로!*/
 @media (min-width:1850px) { /*한 줄에 4개 들어가는 경우*/
     .defaultResult{
         clear:both;
-        margin: 20px;
-        height: 750px; /* (item개수/4+1)*350 + 50 */
+        margin: 1.25rem;
+        height: 700px; /* (item개수/4+1)*350 + 50 */
     }
 }
 
 @media (max-width:1850px) { /*한 줄에 3개 들어가는 경우*/
     .defaultResult{
         clear:both;
-        margin: 20px;
-        height: 750px; /* (item개수/3+1)*350 + 50 */
+        margin: 1.25rem;
+        height: 700px; /* (item개수/3+1)*350 + 50 */
     }
 }
 
 article>img{
-    width:250px !important;
-    height:250px !important;
+    width:14.5rem !important;
+    height:14.5rem !important;
 }
 
 
 #item{
     float: left;
+    width: 15rem;
+    height: 22.5rem;
 }
 
 #itemCompany{
@@ -110,14 +112,15 @@ article>img{
     border: 1px;
 }
 #itemName{
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     float:left;
+    width: 15rem;
 }
 #itemPrice{
     color: rgb(255, 145, 0);
-    font-size: 16px;
-    margin-left: 100px;
+    font-size: 1rem;
+    margin-left: 5rem;
     font-weight: 600;
     text-align: right;
 }
@@ -136,7 +139,7 @@ input{
 }
 
 #searchButton{
-    width: 50px;
+    width: 3.2rem;
     height: 100%;
     border: 0px;
     background: #fdbf00;
@@ -192,6 +195,7 @@ footer {
 
 footer p {
     margin-bottom: .25rem;
+    font-size: 1rem;
 }
 
 #signup, #dropout{

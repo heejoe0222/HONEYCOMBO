@@ -14,13 +14,13 @@ body{
 .form-auth{
     width: 100%;
     max-width: 380px;
-    padding: 15px;
+    padding: 0.75rem;
     margin: 0 auto;
 }
 
 
 nav{
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -39,15 +39,15 @@ ul li {
 }
 
 .loginword{
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
 }
 
 .logininput{
     line-height: 1;
     width:100%;
-    border: 1px solid #fdbf00;
-    border-radius:5px;
-    padding: 8px;
+    border: 0.0625rem solid #fdbf00;
+    border-radius:0.3125rem;
+    padding: 0.5rem;
     text-align: left;
     font-size: 1rem;
     color: #111111;
@@ -60,7 +60,7 @@ input[type="password"] {
 
 
 hr{
-    width:500px;
+    width:31.25rem;
     text-align: center;
     color: #111111;
 }
@@ -68,25 +68,25 @@ hr{
 .loginBtn{
     border: none;
     width:100%;
-    padding: 8px;
-    height:40px;
-    font-size: 20px;
+    padding: 0.5rem;
+    height:2.5rem;
+    font-size: 1.25rem;
     background-color: #fdbf00;
-    border-radius:5px;
-    margin: 3px;
+    border-radius:0.3125rem;
+    margin: 0.1875rem;
     color: white;
 }
 
 .dropoutBtn{
     border: none;
     width:100%;
-    padding: 8px;
-    height:40px;
-    font-size: 20px;
+    padding: 0.5rem;
+    height:2.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     background-color: #fdbf00;
-    border-radius:5px;
-    margin: 3px;
+    border-radius:0.3125rem;
+    margin: 0.1875rem;
     color: white;
 }
 
@@ -103,4 +103,25 @@ hr{
 #login, #logout {
     background-color: #FFDA2D;
     border: none;
+}
+
+footer {
+    width:70%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin: 0 auto;
+}
+
+footer hr{
+    width: 100%;
+    text-align: center;
+    color: #111111;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
+
+.featurette-divider {
+    margin-top: 5rem; /* Space out the Bootstrap <hr> more */
 }
