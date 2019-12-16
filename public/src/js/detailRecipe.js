@@ -10,10 +10,10 @@ async function fn(comment, title, state="dd"){
             console.log("dd???")
             alert(comment.successMsg);
         }
-        window.location.href = '/recipe/detailRecipe/viewDetail/' + title
+        window.location.href = '/recipe/detailRecipe/viewDetail/' + title + '/'
     } else {
         alert(comment.errMsg)
-        window.location.href = '/recipe/detailRecipe/viewDetail/' + title
+        window.location.href = '/recipe/detailRecipe/viewDetail/' + title + '/'
     }
 }
 
