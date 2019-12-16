@@ -52,6 +52,22 @@ router.get('/', function (req, res) {
     })
 })
 
+// item search for item name
+router.get('/search/:ITEMNAME', function (req, res) {
+    var ITEMNAME = req.params.ITEMNAME
+    var productList = {}
+    var query = conn.query('select * from product where ITEMNAME LIKE "%' + ITEMNAME + '%"', function (err, rows) {
+        if (err) throw err;
+        if (rows[0]) {
+            productList.result = 1;
+            productList.items = rows;
+        } else {
+            productList.result = 0
+        }
+        res.json(productList)
+    })
+})
+
 router.post('/postRecipe', function(req, res) {
     var id = req.user
     var title = req.body.title;
