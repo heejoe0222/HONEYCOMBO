@@ -53,3 +53,26 @@ document.querySelector('#write_submit').addEventListener('click', async function
         alert("빈칸을 채워주세요!");
     }
 });
+
+async function fn(showResult, productList) {
+    var imgSrc = productList.items[i].IMGFILENAME;
+
+    if (productList.result === 1) {
+        showResult.innerHTML = 
+            '';
+    } else {
+        showResult.innerHTML = '<article id="item">해당 상품이 없습니다.</article>';
+    }
+}
+
+document.querySelector('#search').addEventListener('click', async function (e) {
+    let url;
+    const showResult = document.querySelector("#myCarousel");
+    let productList = undefined;
+
+    url = "/recipe/writeRecipe/search/" + document.getElementById("prod_search").value;
+    console.log(url);
+    productList = await honeycomboAPI.getProduct(url);
+    console.log(productList);
+    await fn(showResult, productList);
+});
