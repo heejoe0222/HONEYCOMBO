@@ -74,20 +74,20 @@ router.get('/viewDetail/:TITLE', function (req, res) {
                         callback(null, recipeDetailData)
                     })
                 }
+                // secondQuery callback function for rendering
+                secondQuery(function (err, recipeDetailData) {
+                    if (err) {
+                        console.log("DB err")
+                    } else {
+                        res.statusCode = 200
+                        res.render('recipeView/detailRecipe.ejs', recipeDetailData)
+                    }
+                })
             } else {
                 recipeDetailData.items = ""
                 console.log('none query result')
             }
-            // secondQuery callback function for rendering
-            secondQuery(function (err, recipeDetailData) {
-                if (err) {
-                    console.log("DB err")
-                } else {
-                    res.statusCode = 200
-                    res.render('recipeView/detailRecipe.ejs', recipeDetailData)
-                }
-            })
-            callback(null, recipeDetailData);
+            // callback(null, recipeDetailData);
         });
     };
 
