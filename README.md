@@ -35,7 +35,7 @@
 
 ### Requirements
 
-- NPM
+- Node Package Module
 - MySQL
 - Python 3.6
 
@@ -45,6 +45,7 @@
   + Use database/honeycombo_table.sql
 - Crawling
   + Use database/cu_crawler.py
+  + Use database/gs_crawler.py
 - Server
 ```
 #download packages
