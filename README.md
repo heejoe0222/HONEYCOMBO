@@ -12,10 +12,10 @@
 1. 편의점 러버들을 위한 편의점 러버들을 위한 편의점 제품 정보 및 레시피를 제공
 2. 꿀조합러들과 자유롭게 편의점 레시피 공유 및 소통
 
-#### 웹사이트 화면 예시
+### 웹사이트 화면 예시
 ![무제](https://i.imgur.com/lIZ5FFQ.png)
 
-#### 기능
+### 기능
 
 1. **편의점 상품**
 
@@ -33,13 +33,13 @@
 
 ## Code
 
-#### Requirements
+### Requirements
 
 - NPM
 - MySQL
 - Python 3.6
 
-#### To do beforehand
+### To do beforehand
 
 - Database setting
   + Use database/honeycombo_table.sql
@@ -53,6 +53,6 @@ npm install
 #run server
 node app.js
 ```
-#### To run
+### To run
 [http://localhost:3000/](http://localhost:3000/)
 
