@@ -6,7 +6,7 @@ async function fn(showResult, productList, result) {
         // TODO : show result in default section
         var article = '';
         for (var i = 0; i < productList.items.length; i++) {
-            var imgSrc = '/images/' + productList.items[i].IMGFILENAME;
+            var imgSrc = productList.items[i].IMGFILENAME;
             article += '<article id="item" class="mx-4 my-5"><img src='+imgSrc+'><li id="itemCompany">'+productList.items[i].COMPANY+'</li><li id="itemName">'+productList.items[i].ITEMNAME+'</li><li id="itemPrice">'+productList.items[i].ITEMPRICE +'원</li><br></article>';
         }
         showResult.innerHTML = '<ul>'+article+'</ul>';
