@@ -119,7 +119,7 @@
                     </div>
 
                 <div class="col-xs mx-2 mr-5 align-self-center">
-                    <span id="rate" style="font-size:1.3rem"><%= avgRate %></span>
+                    <span id="rate" style="font-size:1.3rem"><%= avgRate.toFixed(1) %></span>
                     <span style="font-size:1.3rem">점</span>
                 </div>
                 <% } %>
@@ -299,9 +299,10 @@
                                 <% } %>
                             </div>
                             <!--내 댓글인 경우에만 뜸-->
-                            <% if(isCommentWritten == 1) { %>
+                            <% if(isCommentWritten == 1 ) { %>
                             <button class="btn btn-primary mx-2" id="comment_delete" name="deleteComment">삭제</button>
-                                <%}%>
+                                <% isCommentWritten = 0 %>
+                            <% } %>
                             <hr>
                         </div>
                   <%}}%>
