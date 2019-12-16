@@ -57,7 +57,7 @@ hr{
   color: #111111;
 }
 
-.recipeInfo, .recipeIngredient, .recipeContent, .commetList{
+.recipeInfos, .recipeIngredient, .recipeContent, .commetList{
   width:70%;
   margin: 0 auto;
 }
