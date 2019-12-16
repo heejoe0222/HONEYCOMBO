@@ -6,25 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/src/css/recipeMain.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/src/js/tags/jquery.tag-editor.css">
-    <!--<script type="text/javascript">
-        function divResize() {
-            var itemDiv = document.getElementsByClassName('defaultResult');
-            var itemNum = document.getElementById('itemNum').innerText;
-
-            if (matchMedia("screen and (min-width:1850px)").matches) {
-                var rowNum = Math.floor(itemNum/4)+1;
-                itemDiv.style.height = String(rowNum*350+50)+"px";
-            } else {
-                var rowNum = Math.floor(itemNum/3)+1;
-                itemDiv.style.height = String(rowNum*350+50)+"px";
-            }
-        }
-        window.onload = function() {
-            divResize();
-            // 브라우저 크기가 변할 시 동적으로 사이즈를 조절해야 하는경우
-            window.addEventListener('resize', divResize);
-        }
-    </script>-->
 </head>
 <body>
 <header>
@@ -108,7 +89,7 @@
                     <% for ( var i = 0; i < items.length; i++){ %>
                         <article class="recipe mx-4 my-1">
                             <!--TODO : change source path and change IMGFILENAME to format contained file-->
-                            <% var imgSrc = items[i].IMGFILENAME %>
+                            <% var imgSrc = '/images/'+items[i].IMGFILENAME %>
                             <% var tagStr = items[i].TAGCONTENTS %>
                             <% var subItemList = tagStr.split('#') %>
                             <% var detailUrl = '/recipe/detailRecipe/' + items[i].TITLE %>
