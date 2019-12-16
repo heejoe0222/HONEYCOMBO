@@ -187,8 +187,7 @@
 
         <!--youtube-->
         <div class="embed-responsive embed-responsive-16by9 my-5">
-            <% var videoID = items.recipeData[0].videoUrl %>
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%=videoID%>?rel=0" allowfullscreen></iframe> <!--youtube 변수 들어가야-->
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%=items.recipeData[0].videoUrl%>" allowfullscreen></iframe> <!--youtube 변수 들어가야-->
         </div>
 
         <!--mainContents-->
@@ -310,9 +309,11 @@
 
             <!--댓글 작성하기: 유저 댓글 없음 -->
             <% if(isCommentWritten == 0) { %>
-            <form class="comment mt-4" action="/recipe/detailRecipe/writeComment" method="post">
+            <li class="writeComment">
+            <form class="comment mt-4" action="" method="post">
                 <div class="form-group row justify-content-center align-items-center">
                     <label class="col-1 col-form-label ml-4" for="cmt_input"><h5>작성</h5></label>
+                    <input type="hidden" name="recipeTitle" value="<%=recipeTitle%>">
                     <input type="text" name="commentWrite" style="font-size:1.2rem" id="cmt_input" class="form-control col-sm-7" placeholder="코멘트를 30자 이내로 남겨주세요 :)">
                     <div class="rating-group ml-4">
                       <span class="star-rating star-5">
@@ -323,10 +324,11 @@
                         <input type="radio" name="usersRate" value="5"><i></i>
                       </span>
                     </div>
-                    <input type="submit" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
+                    <input type="button" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
                 </div>
             </form>
-            <% } %>
+            </li>
+            <%}%>
         </div>
     </div>
 

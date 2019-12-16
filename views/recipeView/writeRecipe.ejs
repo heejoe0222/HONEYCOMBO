@@ -94,7 +94,7 @@
                                 <div class="col-xs <%= i %> mx-2" id=<%= tempId %>>
                                     <div class="card align-self-center">
                                         <div class="card-body text-center">
-                                            <% var imgSrc = '/images/' + items[i].imgPath %>
+                                            <% var imgSrc = items[i].imgPath %>
                                             <h6 id="<%= tempId %>" class="card-title"><%= items[i].itemName %></h6>
                                             <img id="<%= tempId %>" class="rounded mx-auto d-block" width=100 height=100 src="<%= imgSrc %>">
                                             <input type="button" id="add" class="btn btn-primary mx-auto d-block mt-1" name="<%= current %>" value="재료 추가">
@@ -117,7 +117,7 @@
                                 <div class="col-xs <%= i %> mx-4" id=<%= tempId %>>
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <% var imgSrc = '/images/' + items[i].imgPath %>
+                                            <% var imgSrc = + items[i].imgPath %>
                                             <h6 id="<%= tempId %>" class="card-title"><%= items[i].itemName %></h6>
                                             <img id="<%= tempId %>" class="rounded mx-auto d-block" width=100 height=100 src="<%= imgSrc %>">
                                             <input type="button" id="add" class="btn btn-primary mx-auto d-block mt-1" name="<%= current %>" value="재료 추가">
