@@ -16,14 +16,11 @@ async function fn(comment, title, state="dd"){
         window.location.href = '/recipe/detailRecipe/viewDetail/' + title
     }
 }
-//enrollComment
-document.querySelector('#commet_submit').addEventListener('click', async function (e) {
+
+document.querySelector('.commetList').addEventListener('click', async function (e) {
     let url, method, data;
     const target = e.target;
-    const li = target.closest('li');
-    const eachComment = document.querySelector(".eachComment");
-    const type = li.className;
-    const title = document.querySelector(".recipeInfo").id;
+    const type = target.name;
     let result = undefined;
 
     // if (target.tagName !== "BUTTON") return;

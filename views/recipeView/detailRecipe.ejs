@@ -300,7 +300,7 @@
                             </div>
                             <!--내 댓글인 경우에만 뜸-->
                             <% if(isCommentWritten == 1) { %>
-                            <button class="btn btn-primary mx-2" id="comment_delete" >삭제</button>
+                            <button class="btn btn-primary mx-2" id="comment_delete" name="deleteComment">삭제</button>
                                 <%}%>
                             <hr>
                         </div>
@@ -309,7 +309,6 @@
 
             <!--댓글 작성하기: 유저 댓글 없음 -->
             <% if(isCommentWritten == 0) { %>
-            <li class="writeComment">
             <form class="comment mt-4" action="" method="post">
                 <div class="form-group row justify-content-center align-items-center">
                     <label class="col-1 col-form-label ml-4" for="cmt_input"><h5>작성</h5></label>
@@ -324,10 +323,9 @@
                         <input type="radio" name="usersRate" value="5"><i></i>
                       </span>
                     </div>
-                    <input type="button" id="commet_submit" value="제출" class="btn btn-primary ml-4 align-self-center">
+                    <input type="button" id="commet_submit" name="writeComment" value="제출" class="btn btn-primary ml-4 align-self-center">
                 </div>
             </form>
-            </li>
             <%}%>
         </div>
     </div>
