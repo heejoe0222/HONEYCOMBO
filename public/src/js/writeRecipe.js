@@ -55,13 +55,81 @@ document.querySelector('#write_submit').addEventListener('click', async function
 });
 
 async function fn(showResult, productList) {
-    var imgSrc = productList.items[i].IMGFILENAME;
-
     if (productList.result === 1) {
-        showResult.innerHTML = 
-            '';
+        var items = productList.items;
+        var result = '<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">\
+                        <div class="carousel-inner" role="listbox">\
+                            <div class="carousel-item pb-3 active">\
+                                <div class="row justify-content-around">';
+
+        var itemsLen = items.length;
+        var showNum = 4;
+        var iter = Math.ceil(items.length / showNum) - 1;
+        var current = 0;
+        var end = 0;
+
+        if(showNum>itemsLen){
+            end = itemsLen;
+        }else{
+            end = showNum;
+        }
+
+        for(let i=current; i<end; i++, current++){
+            var tempId = "item" + String(current);
+            var imgSrc = items[i].IMGFILENAME;
+            result += 
+            '<div class="col-xs '+ i +' mx-2" id='+tempId+'>\
+                <div class="card align-self-center">\
+                    <div class="card-body text-center">\
+                        <h6 id="'+tempId+'" class="card-title">'+items[i].ITEMNAME+'</h6>\
+                        <img id="'+tempId+'" class="rounded mx-auto d-block" width=100 height=100 src="'+imgSrc+'">\
+                        <input type="button" id="add" class="btn btn-primary mx-auto d-block mt-1" name="'+current+'" value="재료 추가">\
+                    </div>\
+                </div>\
+            </div>';
+        }
+        result += '</div></div>';
+
+        for(let j=0;j<iter;j++){
+            result +=
+            '<div class="carousel-item pb-3">\
+            <div class="row justify-content-around">';
+
+            if(itemsLen-current >= showNum){
+                end = current+showNum;
+            }else{
+                end=itemsLen;
+            }
+
+            for(let i=current; i<end; i++, current++){
+                var tempId = "item" + String(current);
+                var imgSrc = items[i].IMGFILENAME;
+                result +=
+                '<div class="col-xs '+ i +' mx-4" id='+tempId+'>\
+                    <div class="card">\
+                        <div class="card-body text-center">\
+                            <h6 id="'+tempId+'" class="card-title">'+items[i].ITEMNAME+'</h6>\
+                            <img id="'+tempId+'" class="rounded mx-auto d-block" width=100 height=100 src="'+imgSrc+'">\
+                            <input type="button" id="add" class="btn btn-primary mx-auto d-block mt-1" name="'+current+'" value="재료 추가">\
+                        </div>\
+                    </div>\
+                </div>';
+            }
+            result += '</div></div>';
+        }
+        result += 
+        '<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">\
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>\
+            <span class="sr-only">Previous</span>\
+        </a>\
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">\
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>\
+            <span class="sr-only">Next</span>\
+        </a>'
+        
+        showResult.innerHTML = result;
     } else {
-        showResult.innerHTML = '<article id="item">해당 상품이 없습니다.</article>';
+        alert("상품검색 결과가 없습니다.");
     }
 }
 
