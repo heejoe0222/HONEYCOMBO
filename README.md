@@ -33,13 +33,13 @@
 
 ## Code
 
-####Requirements
+#### Requirements
 
 - NPM
 - MySQL
 - Python 3.6
 
-####To do beforehand
+#### To do beforehand
 
 - Database setting
   + Use database/honeycombo_table.sql
@@ -53,6 +53,6 @@ npm install
 #run server
 node app.js
 ```
-####To run
+#### To run
 [http://localhost:3000/](http://localhost:3000/)
 
