@@ -11,7 +11,7 @@ def getCatePage() :
 	prodJson = []
 
 	# install chromedriver! and change temp webdriver path to your local path
-	driver = webdriver.Chrome('C:/Users/thakd/Downloads/chromedriver')
+	driver = webdriver.Chrome('C:\\Users\\heejo\\Downloads\\chromedriver')
 	driver.get(baseUrl)
 	
 	tempHtml = driver.page_source
